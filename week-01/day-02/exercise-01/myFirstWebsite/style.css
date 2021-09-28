@@ -1,0 +1,64 @@
+body{
+    background-image: url('assets/background.png');
+    font-family: 'Inconsolata', monospace;
+    margin: 0px;
+}
+
+nav{
+    background: #333333;
+}
+
+img{
+    margin: 10px;
+    margin-left: 10%;
+}
+
+li{
+    display: inline;
+    padding: 20px;
+}
+
+li a{
+    color: #ff0099;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+ul{
+    float: right;
+    margin-right: 10%;
+}
+
+h1, h2{
+    font-family: 'Roboto Slab', serif;
+}
+
+h1{
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 90px;
+}
+
+.subtitle{
+    color: #ff0099;
+}
+
+header, main{
+    margin: 20px 10%;
+}
+
+#separator{
+    text-align: center;
+    padding: 20px;
+}
+
+dt{
+    margin: 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+dd{
+    text-align: justify;
+}

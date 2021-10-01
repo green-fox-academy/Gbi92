@@ -5,12 +5,18 @@
 //  Returns `-1` if the second string is not in the first one
 
 function substr(str: string, keyword: string) : number {
-    let indexOfKey: number = str.indexOf(keyword);
-    if(indexOfKey) {
-        return indexOfKey;
-    } else {
-        return -1;
+    let keyIndex: number = 0;
+    for (let i: number = 0; i < str.length; i++) {
+        if (str.charAt(i) === keyword.charAt(keyIndex)) {
+            keyIndex++;
+        } else {
+            keyIndex = 0;
+        }
+        if (keyIndex === keyword.length) {
+            return i - (keyword.length - 1);
+        }
     }
+    return -1;
 }
 
 //  Example

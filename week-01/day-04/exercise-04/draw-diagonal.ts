@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 let lineCount: number = 6;
 
@@ -14,14 +14,14 @@ let lineCount: number = 6;
 //
 // The square should have as many lines as lineCount is
 
-for(let i: number = 1; i <= lineCount; i++) {
-    let line: string = '';
-    for(let j: number = 1; j <= lineCount; j++) {
-        if (i === 1 || j === 1 || j === lineCount || i === lineCount || i === j){
-            line += '%';
-        } else {
-            line += ' ';
-        }
+for (let i: number = 1; i <= lineCount; i++) {
+  let line: string = "";
+  for (let j: number = 1; j <= lineCount; j++) {
+    if (i === 1 || j === 1 || j === lineCount || i === lineCount || i === j) {
+      line += "%";
+    } else {
+      line += " ";
     }
-    console.log(line);
+  }
+  console.log(line);
 }

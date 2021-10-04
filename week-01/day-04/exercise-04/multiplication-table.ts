@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 let number: number = 15;
 
@@ -21,7 +21,7 @@ let number: number = 15;
 
 export function multiplicationTable(number: number) {
   // write your code here for Gradescope testing
-  for ( let i: number = 1; i <= 10; i++) {
-      console.log(i + ' * ' + number + ' = ' + ( i * number ));
+  for (let i: number = 1; i <= 10; i++) {
+    console.log(i + " * " + number + " = " + i * number);
   }
 }

@@ -3,7 +3,7 @@
 //  Create a function that takes a list of numbers as a parameter
 //  and returns a list of numbers where every number is unique (occurs only once)
 
-function findUniqueItems(arr: number[]): number[] {
+export function findUniqueItems(arr: number[]): number[] {
   let uniqueArr: number[] = [];
   arr.forEach((num) => {
     if (!uniqueArr.includes(num)) {

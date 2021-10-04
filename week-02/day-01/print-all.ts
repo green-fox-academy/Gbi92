@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // -  Create a variable named `numbers` with the following content: `[4, 5, 6, 7]`
 // -  Log each the element of `numbers` to the console*
@@ -7,6 +7,6 @@
 
 let numbers3: number[] = [4, 5, 6, 7];
 
-numbers3.forEach(num => {
-    console.log(num);
+numbers3.forEach((num) => {
+  console.log(num);
 });

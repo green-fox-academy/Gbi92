@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // - Create an array variable named `drinks` with the following content:
 //   `['Gin', 'Whiskey', 'Wine', 'Beer']`
@@ -6,8 +6,8 @@
 //   a loop
 // - It should print: ['GinGin', 'WhiskeyWhiskey', 'WineWine', 'BeerBeer']`
 
-let drinks: string[] = ['Gin', 'Whiskey', 'Wine', 'Beer'];
+let drinks: string[] = ["Gin", "Whiskey", "Wine", "Beer"];
 
-drinks = drinks.map(drink => drink + drink);
+drinks = drinks.map((drink) => drink + drink);
 
 console.log(drinks);

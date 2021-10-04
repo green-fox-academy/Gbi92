@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // -  Create a variable named `numbers`
 //    with the following content: `[3, 4, 5, 6, 7]`
@@ -18,7 +18,7 @@ console.log(numbers7);
 let reversedArr: number[] = [];
 
 for (let i: number = numbers7.length - 1; i >= 0; i--) {
-    reversedArr.push(numbers7[i]);
+  reversedArr.push(numbers7[i]);
 }
 
 console.log(reversedArr);

@@ -7,7 +7,7 @@
 
 let nameToGreet: string = "Green Fox";
 
-function greet(name: string) {
+function greet(name: string): void {
   console.log(`Greetings dear ${name}!`);
 }
 

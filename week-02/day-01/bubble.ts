@@ -5,13 +5,13 @@
 //  When you are done, add a second boolean parameter to the function
 //  If it is `true` sort the list descending, otherwise ascending
 
-function bubble(arr: number[]) {
+function bubble(arr: number[]): number[] {
   return arr.sort((a: number, b: number) => {
     return a - b;
   });
 }
 
-function advancedBubble(arr: number[], bool: boolean) {
+function advancedBubble(arr: number[], bool: boolean): number[] {
   if (bool) {
     return arr.sort((a: number, b: number) => {
       return b - a;

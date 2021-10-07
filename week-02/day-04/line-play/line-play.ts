@@ -6,7 +6,12 @@ export {};
 
 // DO NOT TOUCH THE CODE ABOVE THIS LINE
 
-function drawLine(xStart: number, yStart: number, xTo: number, yTo: number): void {
+function drawLine(
+  xStart: number,
+  yStart: number,
+  xTo: number,
+  yTo: number
+): void {
   ctx.beginPath();
   ctx.moveTo(xStart, yStart);
   ctx.lineTo(xTo, yTo);
@@ -17,11 +22,11 @@ let height: number = canvas.height;
 let gap: number = 20;
 
 for (let i: number = height - gap; i > 0; i -= gap) {
-    ctx.strokeStyle = 'green';
-    drawLine(0, i, i, height - (1 / i));
+  ctx.strokeStyle = "green";
+  drawLine(0, i, i, height - 1 / i);
 }
 
 for (let j: number = height - gap; j > 0; j -= gap) {
-    ctx.strokeStyle = 'purple';
-    drawLine(j, 0, height - (1 / j), j);
+  ctx.strokeStyle = "purple";
+  drawLine(j, 0, height - 1 / j, j);
 }

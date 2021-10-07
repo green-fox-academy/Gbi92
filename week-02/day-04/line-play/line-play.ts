@@ -21,12 +21,12 @@ function drawLine(
 let height: number = canvas.height;
 let gap: number = 20;
 
+ctx.strokeStyle = "green";
 for (let i: number = height - gap; i > 0; i -= gap) {
-  ctx.strokeStyle = "green";
-  drawLine(0, i, i, height - 1 / i);
+  drawLine(0, i, i, height - (1 / i));
 }
 
+ctx.strokeStyle = "purple";
 for (let j: number = height - gap; j > 0; j -= gap) {
-  ctx.strokeStyle = "purple";
-  drawLine(j, 0, height - 1 / j, j);
+  drawLine(j, 0, height - (1 / j), j);
 }

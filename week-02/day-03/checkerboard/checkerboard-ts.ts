@@ -12,12 +12,17 @@ function drawSquare(xPos: number, yPos: number, size: number): void {
   ctx.fillRect(xPos, yPos, size, size);
 }
 
-let lineC: number = 8;
+function isEven(number: number): boolean {
+  return number % 2 === 0;
+}
+
+let rows: number = 8;
+let columns: number = rows;
 let edgeSize: number = 20;
 
-for (let y: number = 0; y <= lineC; y++) {
-  for (let x: number = 0; x <= lineC; x++) {
-    if ((x + y) % 2 === 0) {
+for (let y: number = 0; y < rows; y++) {
+  for (let x: number = 0; x < columns; x++) {
+    if (isEven(x + y)) {
       ctx.fillStyle = "pink";
     } else {
       ctx.fillStyle = "black";
@@ -25,3 +30,14 @@ for (let y: number = 0; y <= lineC; y++) {
     drawSquare(x * edgeSize, y * edgeSize, edgeSize);
   }
 }
+
+// for (let y: number = 0; y < rows * edgeSize; y += edgeSize) {
+//   for (let x: number = 0; x < columns * edgeSize; x += edgeSize) {
+//     if (isEven((x + y) / edgeSize)) {
+//       ctx.fillStyle = "pink";
+//     } else {
+//       ctx.fillStyle = "black";
+//     }
+//     drawSquare(x, y, edgeSize);
+//   }
+// }

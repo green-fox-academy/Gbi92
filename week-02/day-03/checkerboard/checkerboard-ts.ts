@@ -18,7 +18,7 @@ function isEven(number: number): boolean {
 
 let rows: number = 8;
 let columns: number = rows;
-let edgeSize: number = 20;
+let squareSide: number = 20;
 
 for (let y: number = 0; y < rows; y++) {
   for (let x: number = 0; x < columns; x++) {
@@ -27,17 +27,17 @@ for (let y: number = 0; y < rows; y++) {
     } else {
       ctx.fillStyle = "black";
     }
-    drawSquare(x * edgeSize, y * edgeSize, edgeSize);
+    drawSquare(x * squareSide, y * squareSide, squareSide);
   }
 }
 
-// for (let y: number = 0; y < rows * edgeSize; y += edgeSize) {
-//   for (let x: number = 0; x < columns * edgeSize; x += edgeSize) {
-//     if (isEven((x + y) / edgeSize)) {
+// for (let y: number = 0; y < rows * squareSide; y += squareSide) {
+//   for (let x: number = 0; x < columns * squareSide; x += squareSide) {
+//     if (isEven((x + y) / squareSide)) {
 //       ctx.fillStyle = "pink";
 //     } else {
 //       ctx.fillStyle = "black";
 //     }
-//     drawSquare(x, y, edgeSize);
+//     drawSquare(x, y, squareSide);
 //   }
 // }

@@ -5,7 +5,7 @@
 
 let toBeReversed: string = `.eslaf eb t'ndluow ecnetnes siht ,dehctiws erew eslaf dna eurt fo sgninaem eht fI`;
 
-function reverse(sentence:string): string {
+export function reverse(sentence:string): string {
     let reversedArr: string[] = sentence.split(' ').reverse();
     let reversedWordsArr: string[] = reversedArr.map(word => {
         return word.split('').reverse().join('');
@@ -14,5 +14,3 @@ function reverse(sentence:string): string {
 }
 
 console.log(reverse(toBeReversed));
-
-export = reverse;

@@ -1,84 +1,88 @@
 body {
-    margin: 0px;
+  margin: 0px;
 }
 
 header {
-    background-image: url(./img/anakin.png);
-    background-size: cover;
-    height: 400px;
+  background-image: url(./img/anakin.png);
+  background-size: cover;
+  height: 400px;
 }
 
-main, footer, hr{
-    margin: 0px 10%;
-}
-  
-hr{
-    border: 3px solid black;
-}
-  
-header{
-    position: relative;
-}
-  
-.title{
-    position: absolute;
-    bottom: 20px;
-    left: 30%;
-}
-  
-header, blockquote{
-    font-family: 'Abril Fatface', cursive;
-    font-size: 30px;
-    line-height: .5;
+main,
+footer,
+hr {
+  margin: 0px 10%;
 }
 
-blockquote{
-    background: #444444;
-    color: white;
-    padding: 20px 40px 30px 0px;
-}
-  
-blockquote::before{
-    content: '\201C';
-    font-size: 4em;
-    vertical-align: -.2em;
-}
-  
-main, footer{
-    font-family: 'Josefin Sans', sans-serif;
-    color: #222;
-    font-weight: 300;
-    font-size: 16px;
-}
-  
-.introduction{
-    padding-top: 30px;
-    font-size: 20px;    
-    line-height: 1.4;
-}
-  
-h2{
-    color: black;
-    font-size: 30px;
-    margin: 40px 0;
-}
-  
-h4{
-    font-family: 'Merriweather', serif;
-    font-size: 15px;
+hr {
+  border: 3px solid black;
 }
 
-h3{
-    font-size: 25px;
-    font-weight: bold;
+header {
+  position: relative;
 }
-  
-div{
-    line-height: .1;
-    padding-top: 10px;
+
+.title {
+  position: absolute;
+  bottom: 20px;
+  left: 30%;
 }
-  
-ul{
-    list-style-type: square;
-    line-height: 1.5;
+
+header,
+blockquote {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 30px;
+  line-height: 0.5;
+}
+
+blockquote {
+  background: #444444;
+  color: white;
+  padding: 20px 40px 30px 0px;
+}
+
+blockquote::before {
+  content: '\201C';
+  font-size: 4em;
+  vertical-align: -0.2em;
+}
+
+main,
+footer {
+  font-family: 'Josefin Sans', sans-serif;
+  color: #222;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.introduction {
+  padding-top: 30px;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+h2 {
+  color: black;
+  font-size: 30px;
+  margin: 40px 0;
+}
+
+h4 {
+  font-family: 'Merriweather', serif;
+  font-size: 15px;
+}
+
+h3 {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+div {
+  line-height: 0.1;
+  padding-top: 10px;
+}
+
+ul {
+  list-style-type: square;
+  line-height: 1.5;
 }

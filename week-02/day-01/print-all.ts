@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 // -  Create a variable named `numbers` with the following content: `[4, 5, 6, 7]`
 // -  Log each the element of `numbers` to the console*

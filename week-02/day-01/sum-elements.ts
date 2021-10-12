@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 // - Create a variable named `numbers`
 //   with the following content: `[54, 23, 66, 12]`

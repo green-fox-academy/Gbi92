@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
-const canvas = document.querySelector(".main-canvas") as HTMLCanvasElement;
-const ctx = canvas.getContext("2d");
+const canvas = document.querySelector('.main-canvas') as HTMLCanvasElement;
+const ctx = canvas.getContext('2d');
 export {};
 
 // DO NOT TOUCH THE CODE ABOVE THIS LINE
@@ -23,9 +23,9 @@ let squareSide: number = 20;
 for (let y: number = 0; y < rows; y++) {
   for (let x: number = 0; x < columns; x++) {
     if (isEven(x + y)) {
-      ctx.fillStyle = "pink";
+      ctx.fillStyle = 'pink';
     } else {
-      ctx.fillStyle = "black";
+      ctx.fillStyle = 'black';
     }
     drawSquare(x * squareSide, y * squareSide, squareSide);
   }

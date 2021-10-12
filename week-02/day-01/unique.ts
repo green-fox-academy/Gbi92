@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 //  Create a function that takes a list of numbers as a parameter
 //  and returns a list of numbers where every number is unique (occurs only once)

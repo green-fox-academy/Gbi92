@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
-const canvas = document.querySelector(".main-canvas") as HTMLCanvasElement;
-const ctx = canvas.getContext("2d");
+const canvas = document.querySelector('.main-canvas') as HTMLCanvasElement;
+const ctx = canvas.getContext('2d');
 export {};
 
 // DO NOT TOUCH THE CODE ABOVE THIS LINE
@@ -9,7 +9,7 @@ export {};
 // Draw four different size and color rectangles
 // Avoid code duplication!
 
-const colors: string[] = ["green", "blue", "orange", "pink"];
+const colors: string[] = ['green', 'blue', 'orange', 'pink'];
 
 function drawRect(
   xPos: number,

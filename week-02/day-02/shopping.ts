@@ -1,11 +1,11 @@
-"use strict";
+'use strict';
 
 let products: any = {
   milk: 1.07,
   rice: 1.59,
   eggs: 3.14,
   cheese: 12.6,
-  "chicken breasts": 9.4,
+  'chicken breasts': 9.4,
   apples: 2.31,
   tomato: 2.58,
   potato: 1.75,
@@ -17,7 +17,7 @@ let bobList: any = {
   rice: 2,
   eggs: 2,
   cheese: 1,
-  "chicken breasts": 4,
+  'chicken breasts': 4,
   apples: 1,
   tomato: 2,
   potato: 1,
@@ -26,7 +26,7 @@ let bobList: any = {
 let aliceList: any = {
   rice: 1,
   eggs: 5,
-  "chicken breasts": 2,
+  'chicken breasts': 2,
   apples: 1,
   tomato: 10,
 };
@@ -38,7 +38,7 @@ Object.keys(bobList).forEach((key) => {
   bobPay += bobList[key] * products[key];
 });
 
-console.log("Bob pays: " + bobPay);
+console.log('Bob pays: ' + bobPay);
 
 //How much does Alice pay?
 let alicePay: number = 0;
@@ -47,7 +47,7 @@ Object.keys(aliceList).forEach((key) => {
   alicePay += aliceList[key] * products[key];
 });
 
-console.log("Alice pays: " + alicePay);
+console.log('Alice pays: ' + alicePay);
 
 //Who buys more Rice? Who buys more Potato?
 function buysMore(key: string): void {
@@ -58,8 +58,8 @@ function buysMore(key: string): void {
   }
 }
 
-buysMore("rice");
-buysMore("potato");
+buysMore('rice');
+buysMore('potato');
 
 //Who buys more different products?
 let bobCountDiffProd: number = 0;
@@ -75,9 +75,9 @@ for (let key in aliceList) {
 }
 
 if (bobCountDiffProd > aliceCountDiffProd) {
-  console.log("Bob buys more different products: " + bobCountDiffProd);
+  console.log('Bob buys more different products: ' + bobCountDiffProd);
 } else {
-  console.log("Alice buys more different products: " + aliceCountDiffProd);
+  console.log('Alice buys more different products: ' + aliceCountDiffProd);
 }
 
 //Who buys more products? (more pieces)
@@ -94,7 +94,7 @@ Object.keys(aliceList).forEach((key) => {
 });
 
 if (bobCountPieces > aliceCountPieces) {
-  console.log("Bob buys more products: " + bobCountPieces);
+  console.log('Bob buys more products: ' + bobCountPieces);
 } else {
-  console.log("Alice buys more products: " + aliceCountPieces);
+  console.log('Alice buys more products: ' + aliceCountPieces);
 }

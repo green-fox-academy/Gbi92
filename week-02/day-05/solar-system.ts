@@ -5,11 +5,19 @@
 // Create a method called "putSaturn()" which has a list parameter and returns the correct list
 // bonus for using some built in methods
 
-let planetList: string[] = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Uranus', 'Neptune'];
+let planetList: string[] = [
+  'Mercury',
+  'Venus',
+  'Earth',
+  'Mars',
+  'Jupiter',
+  'Uranus',
+  'Neptune',
+];
 
-function putSaturn(planetArr:string[]): string[] {
-    planetArr.splice(planetArr.indexOf('Uranus'), 0, 'Saturn');
-    return planetArr;
+function putSaturn(planetArr: string[]): string[] {
+  planetArr.splice(planetArr.indexOf('Uranus'), 0, 'Saturn');
+  return planetArr;
 }
 
 console.log(putSaturn(planetList));

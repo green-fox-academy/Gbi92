@@ -9,13 +9,13 @@ export {};
 // Reproduce this:
 // [https://github.com/green-fox-academy/teaching-materials/blob/master/workshop/drawing/assets/r3.png]
 
-function drawPurpleSquare(xPos:number, yPos: number, size: number): void {
-    ctx.fillStyle = 'purple';
-    ctx.fillRect(xPos, yPos, size, size);
+function drawPurpleSquare(xPos: number, yPos: number, size: number): void {
+  ctx.fillStyle = 'purple';
+  ctx.fillRect(xPos, yPos, size, size);
 }
 
 let rate: number = 15;
 
-for(let i: number = 1; i < rate; i++) {
-    drawPurpleSquare(i * rate, i * rate, rate);
+for (let i: number = 1; i < rate; i++) {
+  drawPurpleSquare(i * rate, i * rate, rate);
 }

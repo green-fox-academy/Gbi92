@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 let productMap: any = {
   Eggs: 200,
@@ -10,7 +10,7 @@ let productMap: any = {
 };
 
 //How much is the fish?
-console.log(`The fish is: ${productMap["Fish"]}`);
+console.log(`The fish is: ${productMap['Fish']}`);
 
 //What is the most expensive product?
 let prices: number[] = [];
@@ -61,7 +61,7 @@ Object.keys(productMap).forEach((key) => {
 if (productName) {
   console.log(`We can buy ${productName} for exactly 125.`);
 } else {
-  console.log("There is nothing we can buy for 125.");
+  console.log('There is nothing we can buy for 125.');
 }
 
 //What is the cheapest product?

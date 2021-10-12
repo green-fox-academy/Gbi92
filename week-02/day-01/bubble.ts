@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 //  Create a function that takes a list of numbers as parameter
 //  and returns a list where the elements are sorted in ascending numerical order

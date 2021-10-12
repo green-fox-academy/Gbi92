@@ -12,10 +12,13 @@ export {};
 // Draw 3 squares with that function
 // Avoid code duplication!
 
-function drawSquare(xPos:number, yPos: number): void {
-    ctx.fillRect(xPos, yPos, 50, 50);
+function drawSquare(xPos: number, yPos: number): void {
+  ctx.fillRect(xPos, yPos, 50, 50);
 }
 
-for(let i: number = 0; i < 3; i++) {
-    drawSquare(i + Math.floor(Math.random() * 400), i + Math.floor(Math.random() * 400));
+for (let i: number = 0; i < 3; i++) {
+  drawSquare(
+    i + Math.floor(Math.random() * 400),
+    i + Math.floor(Math.random() * 400)
+  );
 }

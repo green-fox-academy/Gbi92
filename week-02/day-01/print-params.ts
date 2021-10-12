@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 // -  Create a function called `printParams`
 //    which logs to the console the input parameters
@@ -14,4 +14,4 @@ function printParams(
   console.log(a, b, c, d, e);
 }
 
-printParams(5, 89, "flower", 432, true);
+printParams(5, 89, 'flower', 432, true);

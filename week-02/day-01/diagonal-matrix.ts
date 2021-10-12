@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 // - Create a two dimensional list dynamically with the following content.
 //   Note that a two dimensional list is often called matrix if every

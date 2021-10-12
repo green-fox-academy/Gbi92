@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 let someProduct: any = {
   Eggs: 200,

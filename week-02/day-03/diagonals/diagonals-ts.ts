@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
-const canvas = document.querySelector(".main-canvas") as HTMLCanvasElement;
-const ctx = canvas.getContext("2d");
+const canvas = document.querySelector('.main-canvas') as HTMLCanvasElement;
+const ctx = canvas.getContext('2d');
 export {};
 
 // DO NOT TOUCH THE CODE ABOVE THIS LINE
@@ -18,10 +18,10 @@ function drawLine(
   yEnd: number
 ): void {
   ctx.beginPath;
-  if(xStart === 0 && yStart === 0) {
-      ctx.strokeStyle = 'green';
+  if (xStart === 0 && yStart === 0) {
+    ctx.strokeStyle = 'green';
   } else {
-      ctx.strokeStyle = 'red';
+    ctx.strokeStyle = 'red';
   }
   ctx.moveTo(xStart, yStart);
   ctx.lineTo(xEnd, yEnd);

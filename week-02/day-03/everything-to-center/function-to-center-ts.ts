@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
-const canvas = document.querySelector(".main-canvas") as HTMLCanvasElement;
-const ctx = canvas.getContext("2d");
+const canvas = document.querySelector('.main-canvas') as HTMLCanvasElement;
+const ctx = canvas.getContext('2d');
 export {};
 
 // DO NOT TOUCH THE CODE ABOVE THIS LINE
@@ -19,9 +19,8 @@ function drawLine(xStart: number, yStart: number) {
 }
 
 for (let x: number = 0, y: number = 0; x <= canvas.width; x += 20, y += 20) {
-    drawLine(x, 0);
-    drawLine(0, y);
-    drawLine(x, canvas.height);
-    drawLine(canvas.width, y);
+  drawLine(x, 0);
+  drawLine(0, y);
+  drawLine(x, canvas.height);
+  drawLine(canvas.width, y);
 }
-

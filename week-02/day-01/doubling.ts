@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 // -  Create a variable named `baseNumber` and assign the value `123` to it
 // -  Create a function called `doubleNumber()` that doubles it's input parameter

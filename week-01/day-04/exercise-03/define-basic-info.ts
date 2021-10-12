@@ -17,5 +17,3 @@ console.log(myHeightInM);
 
 let isMarried: boolean = true;
 console.log(isMarried);
-
-

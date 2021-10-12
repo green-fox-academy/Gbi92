@@ -14,4 +14,3 @@
 console.log('Koos Gabriella');
 console.log(29);
 console.log(1.68);
-

@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 let lineCount: number = 4;
 
@@ -11,9 +11,9 @@ let lineCount: number = 4;
 //
 // The triangle should have as many lines as lineCount is
 
-let line: string = "*";
+let line: string = '*';
 
 for (let i: number = 0; i < lineCount; i++) {
   console.log(line);
-  line += "*";
+  line += '*';
 }

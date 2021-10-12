@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 let lineCount: number = 6;
 
@@ -16,12 +16,12 @@ let lineCount: number = 6;
 export function drawSquare(lineCount: number) {
   // write your code here for Gradescope testing
   for (let i: number = 1; i <= lineCount; i++) {
-    let line: string = "";
+    let line: string = '';
     for (let j: number = 1; j <= lineCount; j++) {
       if (i === 1 || j === 1 || j === lineCount || i === lineCount) {
-        line += "%";
+        line += '%';
       } else {
-        line += " ";
+        line += ' ';
       }
     }
     console.log(line);

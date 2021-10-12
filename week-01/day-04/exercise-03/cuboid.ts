@@ -10,6 +10,7 @@ let cubL: number = 5.1;
 let cubW: number = 6.3;
 let cubH: number = 3.4;
 
-console.log('Surface Area: ' + ((cubL * cubW * 2) + (cubL * cubH * 2) + (cubH * cubW * 2)) );
-console.log('Volume: ' + (cubL * cubW * cubH) );
-
+console.log(
+  'Surface Area: ' + (cubL * cubW * 2 + cubL * cubH * 2 + cubH * cubW * 2)
+);
+console.log('Volume: ' + cubL * cubW * cubH);

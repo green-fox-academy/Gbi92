@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 //  Create a function that takes two strings as a parameter
 //  Returns the starting index where the second one is starting in the first one
@@ -22,7 +22,7 @@ function substr(str: string, keyword: string): number {
 //  Example
 
 // should print: `17`
-console.log(substr("this is what I'm searching in", "searching"));
+console.log(substr("this is what I'm searching in", 'searching'));
 
 // should print: `-1`
-console.log(substr("this is what I'm searching in", "not"));
+console.log(substr("this is what I'm searching in", 'not'));

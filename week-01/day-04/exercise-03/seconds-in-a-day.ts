@@ -9,4 +9,6 @@ let currentSeconds: number = 42;
 
 let secondsInADay: number = 86400;
 
-console.log(secondsInADay - ( (currentHours * 3600) + (currentMinutes * 60) + currentSeconds) );
+console.log(
+  secondsInADay - (currentHours * 3600 + currentMinutes * 60 + currentSeconds)
+);

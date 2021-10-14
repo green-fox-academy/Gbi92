@@ -1,3 +1,5 @@
+'use strict';
+
 class Animal {
   private _hunger: number;
   private _thirst: number;
@@ -18,5 +20,13 @@ class Animal {
   public play(): void {
     this._hunger++;
     this._thirst++;
+  }
+
+  public getHunger(): number {
+    return this._hunger;
+  }
+
+  public getThirst(): number {
+    return this._thirst;
   }
 }

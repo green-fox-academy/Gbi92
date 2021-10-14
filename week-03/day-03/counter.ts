@@ -1,3 +1,5 @@
+'use strict';
+
 export class Counter {
   private _counter: number;
   private _initialCounter: number;

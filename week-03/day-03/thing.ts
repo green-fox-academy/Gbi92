@@ -2,9 +2,9 @@ class Thing {
     private name: string;
     private completed: boolean;
   
-    constructor(name: string, completed?: boolean) {
+    constructor(name: string) {
       this.name = name;
-      this.completed = completed ?? false;
+      this.completed = false;
     }
   
     public complete(): void {

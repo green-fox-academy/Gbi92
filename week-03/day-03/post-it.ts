@@ -1,3 +1,5 @@
+'use strict';
+
 class PostIt {
   private _backgroundColor: string;
   private _text: string;

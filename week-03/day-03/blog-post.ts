@@ -1,3 +1,5 @@
+'use strict';
+
 class BlogPost {
   private _authorName: string;
   private _title: string;
@@ -16,10 +18,20 @@ class BlogPost {
     this._publicationDate = publicationDate;
   }
 
-  public describe(): void {
-    console.log(
-      `"${this._title}" titled by ${this._authorName} posted at "${this._publicationDate}" \n ${this._text}`
-    );
+  public getAuthorName(): string {
+    return this._authorName;
+  }
+
+  public getTitle(): string {
+    return this._title;
+  }
+
+  public getText(): string {
+    return this._text;
+  }
+
+  public getpublicationDate(): string {
+    return this._publicationDate;
   }
 }
 
@@ -41,5 +53,3 @@ let blog3 = new BlogPost(
   `Daniel Hanley, a cybersecurity engineer at IBM, doesn’t want to be the center of attention. When I asked to take his picture outside one of IBM’s New York City offices, he told me that he wasn’t really into the whole organizer profile thing.`,
   '2017.03.28.'
 );
-
-blog3.describe();

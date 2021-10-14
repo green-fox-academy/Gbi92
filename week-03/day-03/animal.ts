@@ -1,6 +1,6 @@
 'use strict';
 
-class Animal {
+export class Animal {
   private _hunger: number;
   private _thirst: number;
 

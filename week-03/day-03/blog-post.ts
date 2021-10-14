@@ -1,6 +1,6 @@
 'use strict';
 
-class BlogPost {
+export class BlogPost {
   private _authorName: string;
   private _title: string;
   private _text: string;

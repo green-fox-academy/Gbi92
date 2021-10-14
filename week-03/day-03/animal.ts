@@ -1,6 +1,11 @@
 class Animal {
-  private _hunger: number = 50;
-  private _thirst: number = 50;
+  private _hunger: number;
+  private _thirst: number;
+
+  constructor() {
+    this._hunger = 50;
+    this._thirst = 50;
+  }
 
   public eat(): void {
     this._hunger--;

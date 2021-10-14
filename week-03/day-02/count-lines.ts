@@ -9,14 +9,14 @@ export {};
 
 const fs = require('fs');
 
-function countLines(file: string) {
-  let fileContent: string = fs.readFileSync(file, 'utf-8');
-  let colors: string[] = fileContent.split('\n');
-  console.log(colors.length);
+export function countLines(file: string): number {
+  try {
+    let fileContent: string = fs.readFileSync(file, 'utf-8');
+    let colors: string[] = fileContent.split('\n');
+    return colors.length;
+  } catch (error) {
+    return 0;
+  }
 }
 
-try {
-  countLines('my-File.txt');
-} catch (error: any) {
-  console.log(0);
-}
+countLines('my-File.txt');

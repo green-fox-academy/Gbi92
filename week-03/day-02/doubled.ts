@@ -11,7 +11,7 @@ export {};
 
 const fs = require('fs');
 
-function decryptDoubled(file: string): void {
+export function decryptDoubled(file: string): string {
   try {
     let fileContent: string = fs.readFileSync(file, 'utf-8');
     let lines: string[] = fileContent.split('\n');
@@ -28,7 +28,7 @@ function decryptDoubled(file: string): void {
     let result: string = deduppedText.join('\n');
     fs.writeFileSync('output.txt', result);
   } catch (error) {
-    console.log('File not found');
+    return 'File not found';
   }
 }
 

@@ -1,38 +1,44 @@
-import { Pirate } from './pirate';
+'use strict';
+
 import { Ship } from './ship';
 
 class BattleApp {
-    private shipOne: Ship;
-    private shipTwo: Ship;
+  private shipOne: Ship;
+  private shipTwo: Ship;
 
-    constructor(shipOne: Ship, shipTwo: Ship) {
-        this.shipOne = shipOne;
-        this.shipTwo = shipTwo;
-    }
+  constructor(shipOne: Ship, shipTwo: Ship) {
+    this.shipOne = shipOne;
+    this.shipTwo = shipTwo;
+  }
 
-    public getShipOne(): Ship {
-        return this.shipOne;
-    }
+  public getShipOne(): Ship {
+    return this.shipOne;
+  }
 
-    public getShipTwo(): Ship {
-        return this.shipTwo;
-    }
+  public getShipTwo(): Ship {
+    return this.shipTwo;
+  }
 
-    public startBattle(): boolean {
-        return this.shipOne.battle(this.shipTwo);
-    }
+  public startBattle(): boolean {
+    return this.shipOne.battle(this.shipTwo);
+  }
 }
 
-let blackPearl = new Ship();
-let wickedWench = new Ship();
+let blackPearl: Ship = new Ship();
+let wickedWench: Ship = new Ship();
 
 blackPearl.fillShip();
 wickedWench.fillShip();
 
+console.log('This is the BlackPearl crew \n');
 console.log(blackPearl);
+console.log('This is the WickedWench crew \n');
 console.log(wickedWench);
-
-wickedWench.haveParty();
 
 let battle1 = new BattleApp(blackPearl, wickedWench);
 console.log(battle1.startBattle());
+
+console.log('This is the BlackPearl crew after battle \n');
+console.log(blackPearl);
+console.log('This is the WickedWench crew after battle \n');
+console.log(wickedWench);

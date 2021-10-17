@@ -1,18 +1,16 @@
+'use strict';
+
 import { Pirate } from './pirate';
 
 export class Ship {
   private crew: Pirate[];
-  private alivePirates: number;
+  private aliveCrewMembers: number;
   private captain: Pirate;
-  private captainIsAlive: boolean;
-  private rumConsumedByCaptain: number;
 
   constructor() {
     this.crew = [];
-    this.alivePirates = 0;
+    this.aliveCrewMembers = 0;
     this.captain = new Pirate();
-    this.captainIsAlive = this.captain.getIsAlive();
-    this.rumConsumedByCaptain = this.captain.getIntoxicationLevel();
   }
 
   public getCrew(): Pirate[] {
@@ -20,19 +18,11 @@ export class Ship {
   }
 
   public getAlivePirates(): number {
-    return this.alivePirates;
+    return this.aliveCrewMembers;
   }
 
   public getCaptain(): Pirate {
     return this.captain;
-  }
-
-  public getCaptainIsAlive(): boolean {
-    return this.captainIsAlive;
-  }
-
-  public getRumConsumedByCaptain(): number {
-    return this.rumConsumedByCaptain;
   }
 
   public fillShip(): void {
@@ -40,17 +30,14 @@ export class Ship {
     for (let i = 0; i <= numOfPirates; i++) {
       this.crew.push(new Pirate());
     }
-    for (let j = 0; j < this.crew.length; j++) {
-      if (this.crew[j].getIsAlive()) {
-        this.alivePirates += 1;
-      }
-    }
+    this.aliveCrewMembers = this.crew.length;
   }
 
   public battle(otherShip: Ship): boolean {
-    let scoreOfThis: number = this.alivePirates - this.rumConsumedByCaptain;
+    let scoreOfThis: number =
+      this.aliveCrewMembers - this.captain.getIntoxicationLevel();
     let scoreOfOther: number =
-      otherShip.getAlivePirates() - otherShip.getRumConsumedByCaptain();
+      otherShip.getAlivePirates() - otherShip.captain.getIntoxicationLevel();
     if (scoreOfThis > scoreOfOther) {
       otherShip.generateLosses();
       this.haveParty();
@@ -66,6 +53,7 @@ export class Ship {
     let randomDeath: number = Math.floor(Math.random() * this.crew.length);
     for (let i = 0; i < randomDeath; i++) {
       this.crew[i].die();
+      this.aliveCrewMembers--;
     }
   }
 
@@ -73,9 +61,12 @@ export class Ship {
     let randomAmountOfRum: number = Math.floor(Math.random() * 200);
     for (let i = 0; i < randomAmountOfRum; i++) {
       this.captain.drinkSomeRum();
-      this.crew.forEach((pirate) => {
-        pirate.drinkSomeRum();
-      });
     }
+    this.crew.forEach((pirate) => {
+      let randomAmountOfRum: number = Math.floor(Math.random() * 200);
+      for (let i = 0; i < randomAmountOfRum; i++) {
+        pirate.drinkSomeRum();
+      }
+    });
   }
 }

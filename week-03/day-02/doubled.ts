@@ -18,18 +18,20 @@ export function decryptDoubled(file: string): string {
     //Decryption:
     let deduppedText: string[] = lines.map((line) => {
       let dedup: string[] = [];
-      for (let i: number = 0; i < line.length; i += 2) {
+      for (let i: number = 0; i < line.length; i++) {
+        dedup.push(line.charAt(i));
         if (line.charAt(i) === line.charAt(i + 1)) {
-          dedup.push(line.charAt(i));
+          i++;
         }
       }
       return dedup.join('');
     });
     let result: string = deduppedText.join('\n');
     fs.writeFileSync('output.txt', result);
+    return result;
   } catch (error) {
     return 'File not found';
   }
 }
 
-decryptDoubled('duplicated-chars.txt');
+//console.log(decryptDoubled('duplicated-chars.txt'));

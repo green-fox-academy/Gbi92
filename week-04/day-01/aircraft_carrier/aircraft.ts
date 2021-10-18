@@ -1,6 +1,6 @@
 'use strict';
 
-class Aircraft {
+export class Aircraft {
   protected currentAmmo: number;
   protected maxAmmo: number;
   protected baseDamage: number;
@@ -20,18 +20,26 @@ class Aircraft {
   }
 
   public refillAmmo(stationAmmo: number): number {
-    if (stationAmmo > this.maxAmmo) {
-      let remaining: number = stationAmmo - this.maxAmmo;
-      return remaining;
+    let currentMaxAmmo: number = this.maxAmmo - this.currentAmmo;
+    if (stationAmmo > currentMaxAmmo) {
+      this.currentAmmo += currentMaxAmmo;
+      return stationAmmo - currentMaxAmmo;
+    } else {
+      this.currentAmmo += stationAmmo;
+      return 0;
     }
-    //not complete
+    // let smaller: number = Math.min(stationAmmo, currentMaxAmmo);
+    // this.currentAmmo += smaller;
+    // return stationAmmo - smaller;
   }
 
   public getType(): string {
-      return this.type;
+    return this.type;
   }
 
   public getStatus(): string {
-      return `Type ${this.type}, Ammo: ${this.currentAmmo}, Base Damage: ${this.baseDamage}, All Damage: ${this.fight()}`;
+    return `Type ${this.type}, Ammo: ${this.currentAmmo}, Base Damage: ${
+      this.baseDamage
+    }, All Damage: ${this.fight()}`;
   }
 }

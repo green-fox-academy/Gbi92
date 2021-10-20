@@ -1,6 +1,10 @@
 'use strict';
 
-export function fibonacci(fiboIndex: number) {
+export default function fibonacci(fiboIndex: number) {
+  if (fiboIndex <= 0) {
+    throw 'Index must be a positive number!';
+  }
+
   let prev: number = 0;
   let current: number = 1;
 
@@ -18,5 +22,3 @@ export function fibonacci(fiboIndex: number) {
   }
   return current;
 }
-
-console.log(fibonacci(4));

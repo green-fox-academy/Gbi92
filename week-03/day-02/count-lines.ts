@@ -12,8 +12,8 @@ const fs = require('fs');
 export function countLines(file: string): number {
   try {
     let fileContent: string = fs.readFileSync(file, 'utf-8');
-    let colors: string[] = fileContent.split('\n');
-    return colors.length;
+    let lines: string[] = fileContent.split('\n');
+    return lines.length;
   } catch (error) {
     return 0;
   }

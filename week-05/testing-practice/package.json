@@ -1,0 +1,23 @@
+{
+  "name": "testing-practice",
+  "version": "1.0.0",
+  "description": "testing exercises",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/green-fox-academy/Gbi92.git"
+  },
+  "author": "gabriellaK",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/green-fox-academy/Gbi92/issues"
+  },
+  "homepage": "https://github.com/green-fox-academy/Gbi92#readme",
+  "devDependencies": {
+    "@types/tape": "^4.13.2",
+    "tape": "^5.3.1"
+  }
+}

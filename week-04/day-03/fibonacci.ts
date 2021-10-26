@@ -1,6 +1,6 @@
 'use strict';
 
-export default function fibonacci(fiboIndex: number) {
+export default function fibonacci(fiboIndex: number): number {
   if (fiboIndex <= 0) {
     throw 'Index must be a positive number!';
   }

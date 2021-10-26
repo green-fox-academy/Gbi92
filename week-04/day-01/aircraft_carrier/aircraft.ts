@@ -28,18 +28,35 @@ export class Aircraft {
       this.currentAmmo += stationAmmo;
       return 0;
     }
+    // another solution:
     // let smaller: number = Math.min(stationAmmo, currentMaxAmmo);
     // this.currentAmmo += smaller;
     // return stationAmmo - smaller;
+  }
+
+  public getStatus(): string {
+    return `Type ${this.type}, Ammo: ${this.currentAmmo}, Base Damage: ${
+      this.baseDamage
+    }, All Damage: ${this.baseDamage * this.currentAmmo}`;
+  }
+
+  public isPriority(): boolean {
+    return false;
   }
 
   public getType(): string {
     return this.type;
   }
 
-  public getStatus(): string {
-    return `Type ${this.type}, Ammo: ${this.currentAmmo}, Base Damage: ${
-      this.baseDamage
-    }, All Damage: ${this.fight()}`;
+  public getCurrentAmmo(): number {
+    return this.currentAmmo;
+  }
+
+  public getMaxAmmo(): number {
+    return this.maxAmmo;
+  }
+
+  public getBaseDamage(): number {
+    return this.baseDamage;
   }
 }

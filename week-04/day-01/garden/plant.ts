@@ -4,8 +4,10 @@ export class Plant {
   protected color: string;
   protected waterAmount: number;
   private absorption: number;
+  private type: string;
 
-  constructor(color: string, absorption: number) {
+  constructor(type: string, color: string, absorption: number) {
+    this.type = type;
     this.color = color;
     this.waterAmount = 0;
     this.absorption = absorption;
@@ -15,7 +17,7 @@ export class Plant {
     return this.waterAmount < 5;
   }
 
-  public absorbWater(plusWater: number): void{
+  public absorbWater(plusWater: number): void {
     this.waterAmount += plusWater * this.absorption;
   }
 
@@ -29,5 +31,9 @@ export class Plant {
 
   public getAbsorption(): number {
     return this.absorption;
+  }
+
+  public getType(): string {
+    return this.type;
   }
 }

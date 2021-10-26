@@ -5,13 +5,8 @@ export class Counter {
   private _initialCounter: number;
 
   constructor(counter?: number) {
-    if (counter) {
-      this._counter = counter;
-      this._initialCounter = counter;
-    } else {
-      this._counter = 0;
-      this._initialCounter = 0;
-    }
+    this._counter = counter ?? 0;
+    this._initialCounter = counter ?? 0;
   }
 
   public add(increaser?: number): void {

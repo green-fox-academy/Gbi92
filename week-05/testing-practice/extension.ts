@@ -6,29 +6,36 @@ export function add(a: number, b: number): number {
 
 export function maxOfThree(a: number, b: number, c: number): number {
   return Math.max(a, b, c);
-};
+}
 
 export function median(pool: number[]): number {
-  return pool[Math.floor((pool.length - 1) / 2)];
+  let median: number = 0;
+  let index: number = 0;
+  pool.sort((a, b) => a - b);
+  if (pool.length % 2 === 0) {
+    index = pool.length / 2;
+    median = (pool[index - 1] + pool[index]) / 2;
+  } else {
+    index = Math.ceil(pool.length / 2);
+    median = pool[index - 1];
+  }
+  return median;
 }
 
 export function isVowel(character: string): boolean {
-  return ['a', 'u', 'o', 'e', 'i'].some(vowel => vowel === character);
+  return ['a', 'u', 'o', 'e', 'i'].some((vowel) => vowel === character);
 }
 
 export function translate(hungarian: string): string {
-  let teve = hungarian;
-  let length = teve.length;
+  let teve = hungarian.split('');
 
-  for (let i = 0; i < length; i++) {
-    let c = teve[i];
+  for (let i = 0; i < hungarian.length; i++) {
+    let c = hungarian[i];
     if (isVowel(c)) {
-      teve = teve.split(c).join(`${c}v${c}`);
-      i += 2;
-      length += 2;
+      teve.splice(i, 1, `${c}v${c}`);
     }
   }
-  return teve;
+  return teve.join('');
 }
 
 // Check out the folder. There's a work file and a test file.

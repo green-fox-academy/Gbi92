@@ -29,12 +29,12 @@ test('median: four', function (t: any): any {
 });
 
 test('median: five', function (t: any): any {
-  t.equal(median([1, 2, 3, 4, 5]), 3);
+  t.equal(median([1, 2, 13, 14, 25]), 13);
   t.end();
 });
 
-test('is vowel: a', function (t: any): any {
-  t.ok(isVowel('a'));
+test('is vowel: i', function (t: any): any {
+  t.ok(isVowel('i'));
   t.end();
 });
 
@@ -43,13 +43,13 @@ test('is vowel: u', function (t: any): any {
   t.end();
 });
 
-test('is vowel: k', function(t: any): any {
-  t.notOk(isVowel('k'));
+test('is vowel: v', function(t: any): any {
+  t.notOk(isVowel('v'));
   t.end();
 });
 
-test('translate: bemutatkozik', function (t: any): any {
-  t.equal(translate('bemutatkozik'), 'bevemuvutavatkovozivik');
+test('translate: tavasz', function (t: any): any {
+  t.equal(translate('tavasz'), 'tavavavasz');
   t.end();
 });
 

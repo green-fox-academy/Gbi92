@@ -15,28 +15,35 @@ try {
   throw 'File does not exist';
 }
 
-let lines: string[] = fileContent.split(' /');
-//unique-t meg kiszedni - object keyek array
 function ipAdresses(content: string): string[] {
   const regex: RegExp = /\d{2}\.\d{2}\.\d{2}\.\d{2}/g;
   let ipAdresses = content.match(regex);
+
   if (ipAdresses === null) {
     const empty: string[] = [];
     return empty;
   }
-  return ipAdresses;
+
+  let uniqueObj: any = {};
+  ipAdresses.forEach((ip) => (uniqueObj[ip] = 1));
+
+  let uniqueIPs: string[] = [];
+  Object.keys(uniqueObj).forEach((key) => uniqueIPs.push(key));
+
+  return uniqueIPs;
 }
 
-console.log(ipAdresses(fileContent));
+//console.log(ipAdresses(fileContent));
 
 function getPostRatio(content: string): number {
   const regexGET: RegExp = /GET/g;
   const regexPOST: RegExp = /POST/g;
   let getArr = content.match(regexGET);
   let postArr = content.match(regexPOST);
-  if (getArr?.length && postArr?.length) {
-    return getArr.length / postArr.length;
+  if (getArr === null || postArr === null) {
+    return 0;
   }
+  return getArr.length / postArr.length;
 }
 
-getPostRatio(fileContent);
+//console.log(getPostRatio(fileContent));

@@ -33,8 +33,8 @@ test('median: five', function (t: any): any {
   t.end();
 });
 
-test('is vowel: i', function (t: any): any {
-  t.ok(isVowel('i'));
+test('is vowel: A', function (t: any): any {
+  t.ok(isVowel('A'));
   t.end();
 });
 

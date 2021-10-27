@@ -23,7 +23,7 @@ export function median(pool: number[]): number {
 }
 
 export function isVowel(character: string): boolean {
-  return ['a', 'u', 'o', 'e', 'i'].some((vowel) => vowel === character);
+  return ['a', 'u', 'o', 'e', 'i'].some((vowel) => vowel === character.toLowerCase());
 }
 
 export function translate(hungarian: string): string {

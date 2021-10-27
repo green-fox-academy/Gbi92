@@ -1,21 +1,21 @@
 import test from 'tape';
 import { areAnagrams } from './anagram';
 
-test('areAnagrams function returns true if strings are anagrams', (t) => {
+test('strings are anagrams', (t) => {
   const str1: string = 'silent';
   const str2: string = 'listen';
-  t.equal(areAnagrams(str1, str2), true);
+  t.ok(areAnagrams(str1, str2));
   t.end();
 });
 
-test('areAnagrams function returns false if strings are not anagrams', (t) => {
+test('strings are not anagrams', (t) => {
   const str1: string = 'parrot';
   const str2: string = 'house';
-  t.equal(areAnagrams(str1, str2), false);
+  t.notOk(areAnagrams(str1, str2));
   t.end();
 });
 
-test('areAnagrams function throws error on empty strings', (t) => {
+test('throws error on empty strings', (t) => {
   const str1: string = '';
   const str2: string = '';
   t.throws(() => areAnagrams(str1, str2));

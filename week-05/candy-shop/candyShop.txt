@@ -1,0 +1,52 @@
+```
+### Candy shop
+
+You are going to create a Candy shop where we sell hard candies and lollipops.
+
+#### Sweet
+
+- It has a type, a price and an amount of sugar.
+
+##### Lollipop
+
+- Its type is `lollipop`, price is $10 and it made from 5 grams of sugar.
+
+##### Hard candy
+
+- Its type is `hardCandy`, price is $20 and it made from 10 grams of sugar.
+
+#### Candy shop
+
+- It has sugar, income, and an `inventory` (list of sweets).
+
+- It takes an amount of sugar in gram when creating an instance.
+
+- It has a `createSweet()` method which takes `Sweet` as a parameter
+
+  - and store it in the `inventory`
+  - the `sugar` amount gets reduced by the amount needed to create the sweets
+
+- It has a `raise()` method which takes an `amount` as a parameter
+
+  - raise the prices of all the sweets in the `inventory` with the `amount`
+
+- It has a `sell()` method which takes an `amount` and a `type` as parameter
+
+  - the income will be increased by the price of the sweets
+    and we delete it from the inventory
+
+- It has a `buySugar()` method which takes an `amount` as parameter
+
+  - price of 1000 grams sugar is $100
+
+  - it raises the Candy Shop's amount of sugar
+    and reduces the income by the price of it
+
+  - the income can't go below 0
+
+- It has a `toString()` method which represents the Candy Shop
+
+  - return a string in this format:
+
+    - `Inventory: 3 hard candies, 2 lollipops, Income: $100, Sugar: 400 grams`
+```

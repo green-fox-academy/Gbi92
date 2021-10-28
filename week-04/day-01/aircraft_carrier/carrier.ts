@@ -17,37 +17,30 @@ class Carrier {
     this.aircraftList.push(aircraft);
   }
 
-  public countRequiredAmmo(): number {
-    let requiredAmmoAmount: number = 0;
-    this.aircraftList.forEach((aircraft) => {
-      let ammoDeficit: number =
-        aircraft.getMaxAmmo() - aircraft.getCurrentAmmo();
-      requiredAmmoAmount += ammoDeficit;
-    });
-    return requiredAmmoAmount;
-  }
-
   public fill(): void {
     if (this.ammoStorage === 0) {
       throw 'Ammunition storage is empty';
     }
-    if (this.countRequiredAmmo() > this.ammoStorage) {
-      this.aircraftList.forEach((aircraft) => {
-        if (aircraft.isPriority()) {
-          let remainingAmmo: number = aircraft.refillAmmo(this.ammoStorage);
-          this.ammoStorage = remainingAmmo;
-          // meg ha marad, hogy kene, h utana a nem priokat is toltse, amennyit tud?
-        }
-      });
-    } else {
-      this.aircraftList.forEach((aircraft) => {
-        let remainingAmmo: number = aircraft.refillAmmo(this.ammoStorage);
+    this.fillByPriority(true);
+    this.fillByPriority(false);
+  }
+
+  private fillByPriority(isPrio: boolean): void {
+    for (
+      let i: number = 0;
+      this.ammoStorage > 0 && i < this.aircraftList.length;
+      i++
+    ) {
+      if (this.aircraftList[i].getIsPriority() === isPrio) {
+        let remainingAmmo: number = this.aircraftList[i].refillAmmo(
+          this.ammoStorage
+        );
         this.ammoStorage = remainingAmmo;
-      });
+      }
     }
   }
 
-  public fight(enemy: Carrier) {
+  public fight(enemy: Carrier): void {
     this.aircraftList.forEach((aircraft) => {
       let damage: number = aircraft.fight();
       enemy.setHealthPoint(enemy.getHealthPoint() - damage);

@@ -5,12 +5,14 @@ export class Aircraft {
   protected maxAmmo: number;
   protected baseDamage: number;
   protected type: string;
+  protected isPriority: boolean;
 
-  constructor(type: string, maxAmmo: number, baseDamage: number) {
+  constructor(type: string, maxAmmo: number, baseDamage: number, isPriority: boolean) {
     this.type = type;
     this.currentAmmo = 0;
     this.maxAmmo = maxAmmo;
     this.baseDamage = baseDamage;
+    this.isPriority = isPriority;
   }
 
   public fight(): number {
@@ -40,8 +42,8 @@ export class Aircraft {
     }, All Damage: ${this.baseDamage * this.currentAmmo}`;
   }
 
-  public isPriority(): boolean {
-    return false;
+  public getIsPriority(): boolean {
+    return this.isPriority;
   }
 
   public getType(): string {

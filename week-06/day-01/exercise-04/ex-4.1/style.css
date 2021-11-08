@@ -1,0 +1,41 @@
+body {
+  margin: auto;
+  width: 900px;
+  height: 100vh;
+}
+
+header {
+  height: 70px;
+  background-color: #b02aff;
+  display: flex;
+  align-items: center;
+}
+
+a {
+  background-color: #2aeaff;
+  list-style-type: none;
+  height: 30px;
+  flex-grow: 1;
+}
+
+nav {
+  margin: 0 10px;
+  width: 300px;
+  display: flex;
+  gap: 15px;
+}
+
+main {
+  background-color: #FFD629;
+  flex-grow: 2;
+}
+
+aside {
+  background-color: #51D401;
+  flex-grow: 1;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+}

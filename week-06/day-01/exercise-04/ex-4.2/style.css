@@ -1,0 +1,58 @@
+body {
+  margin: 0px;
+}
+
+header {
+  height: 70px;
+  width: 100%;
+  background-color: #b02aff;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+}
+
+a {
+  background-color: #2aeaff;
+  list-style-type: none;
+  height: 30px;
+  flex-grow: 1;
+}
+
+nav {
+  margin: 0 10px;
+  width: 50%;
+  display: flex;
+  gap: 15px;
+  position: relative;
+  left: 100px;
+}
+
+main {
+  width: 80%;
+  margin: auto;
+}
+
+.container {
+  margin-top: 80px;
+  height: 800px;
+  display: flex;
+  gap: 10px;
+}
+
+section {
+  background-color: #ffd629;
+  flex-grow: 2;
+}
+
+aside {
+  background-color: #51d401;
+  flex-grow: 1;
+}
+
+footer {
+  height: 70px;
+  width: 100%;
+  margin-top: 10px;
+  background-color: #cccccc;
+}

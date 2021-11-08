@@ -1,0 +1,22 @@
+body {
+  margin: 0px;
+}
+
+.item {
+  list-style-type: none;
+  width: 100px;
+  height: 100px;
+  background-color: #b02aff;
+}
+
+.container {
+  margin: 0px;
+  padding: 0px;
+  background-color: #ffd629;
+  width: 100%;
+  height: 350px;
+  display: flex;
+  gap: 5px;
+  justify-content: space-between;
+  align-items: center;
+}

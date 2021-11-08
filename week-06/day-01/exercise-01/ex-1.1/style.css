@@ -1,0 +1,21 @@
+.item {
+  height: 150px;
+  width: 150px;
+  /* float: left; */
+}
+
+.green {
+  background-color: #51d401;
+}
+
+.yellow {
+  background-color: #ffd629;
+}
+
+.purple {
+  background-color: #b02aff;
+}
+
+.container {
+  display: flex;
+}

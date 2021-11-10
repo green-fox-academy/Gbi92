@@ -12,7 +12,7 @@ for (let i = 0; i < businessLamp.length; i++) {
 
 //3.
 const conceitedKing = document.querySelectorAll('.container .asteroid');
-conceitedKing.forEach(el => alert(el.innerHTML));
+conceitedKing.forEach(el => alert(el.innerText));
 
 //4.
 const noBusiness = document.querySelectorAll('div.asteroid');

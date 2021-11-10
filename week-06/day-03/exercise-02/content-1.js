@@ -6,7 +6,7 @@ console.log(pTags);
 //1.
 pTags.forEach((p) => {
     if(p.getAttribute('class') != 'animals') {
-        p.innerHTML += ' ' + lastPTag.textContent;
+        p.innerHTML += ' ' + lastPTag.innerText;
     }
 });
 

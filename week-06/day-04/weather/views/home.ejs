@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet"/>
+    <title>Weather</title>
+  </head>
+  <body>
+    <h1>Weather forecast</h1>
+    <div id="dashboard">
+        <% for (let i=0; i < data.length; i++) { %>
+            <div class="weather-card">
+                <div>
+                    <h2>
+                        <%= data[i].city %>
+                    </h2>
+                    <p>
+                        <%= data[i].location %>
+                    </p>
+                </div>
+                <div class="container">
+                    <p class="temperature">
+                        <%= data[i].weather[1].temp %> <sup>o</sup>C
+                    </p>
+                    <img src="/static/assets/<%= data[i].weather[1].icon %>.png" alt="weather icon">
+                </div>
+            </div>
+        <% } %>
+    </div>
+  </body>
+</html>

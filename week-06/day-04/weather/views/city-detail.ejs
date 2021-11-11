@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/static/style2.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet"/>
+    <title>Weather</title>
+  </head>
+  <body>
+      <h1>
+          <%= data[cityId - 1].city %>
+      </h1>
+      <div id="dashboard">
+        <% for (let i=0; i < data[cityId - 1].weather.length; i++) { %>
+            <div class="weather-card">
+                <img src="/static/assets/<%= data[cityId - 1].weather[i].icon %>.png" alt="weather icon">
+                <p class="temperature">
+                    <%= data[cityId - 1].weather[i].temp %><sup>o</sup>C
+                </p>
+                <p>
+                    <%= data[cityId - 1].weather[i].message %>
+                </p>
+            </div>
+        <% } %>
+    </div>
+  </body>
+</html>

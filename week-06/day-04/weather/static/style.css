@@ -1,0 +1,41 @@
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+#dashboard {
+  height: 560px;
+  width: 520px;
+  border-radius: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ecf0f1;
+}
+
+.weather-card {
+  height: 100px;
+  width: 500px;
+  margin: 5px;
+  border-radius: 5%;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.container {
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.temperature {
+  font-size: 2em;
+}
+
+img {
+  height: 70px;
+  width: 70px;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/static/style.css"/>
+    <title>Cocktails</title>
+</head>
+<body>
+    <h1>Cocktails</h1>
+    <nav>
+        <a href="#">ALL</a>
+        <% for (let i = 0; i < alcoholList.length; i++) { %>
+            <a href="#">
+                <%= alcoholList[i].toUpperCase() %>
+            </a>
+        <% } %>
+    </nav>
+    <table>
+        <tr>
+            <th>NAME</th>
+            <th>PRICE</th>
+        </tr>
+        <% for (let i = 0; i < cocktails.length; i++) { %>
+            <tr>
+                <% if (cocktails[i].isAlcoholic === false) { %>
+                    <td>
+                        <strong>
+                            <%= cocktails[i].name %>
+                        </strong>
+                         (non-alcoholic)
+                    </td>
+                <% } else {%>
+                    <td class="bold">
+                        <%= cocktails[i].name %>
+                    </td>
+                <% } %>
+                <td rowspan="2" class="bold">
+                    <%= cocktails[i].price %> Ft
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= cocktails[i].contains %>
+                </td>
+            </tr>
+        <% } %>
+    </table>
+</body>
+</html>

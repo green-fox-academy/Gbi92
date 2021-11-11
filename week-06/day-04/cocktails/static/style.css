@@ -1,0 +1,38 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  margin: 5px;
+  text-decoration: none;
+}
+
+nav {
+  margin: 10px;
+}
+
+table {
+  margin: 30px;
+  line-height: 2;
+}
+
+th {
+  background-color: black;
+  color: #fff;
+  padding: 10px;
+}
+
+td {
+  padding: 5px;
+}
+
+tr:nth-child(odd) {
+  background: #fff;
+}
+tr:nth-child(even) {
+  background: #eeeeee;
+}
+
+.bold {
+  font-weight: bold;
+}

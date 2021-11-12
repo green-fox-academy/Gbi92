@@ -79,3 +79,34 @@ rightArrow.onclick = () => {
         loadPhoto(currentPhoto);
     }
 };
+
+const thumbContainer = document.querySelector('#thumbnail-container');
+const thumbBox = document.querySelector('.thumbnail');
+
+let thumbnailIndex = 0;
+
+for (let i = 0; i < imagesData.length; i++) {
+    const thumbBox = document.createElement('div');
+    thumbBox.setAttribute('class', 'thumbnail');
+
+    const thumbTitle = document.createElement('p');
+    thumbTitle.setAttribute('class', 'thumb-title');
+    thumbTitle.innerText = imagesData[i].title;
+
+    const thumbPhoto = document.createElement('img');
+    thumbPhoto.setAttribute('class', 'thumbImage');
+    thumbPhoto.setAttribute('src', imagesData[i].photo);
+    thumbPhoto.setAttribute('data-number', thumbnailIndex);
+
+    thumbContainer.appendChild(thumbBox);
+    thumbBox.appendChild(thumbTitle);
+    thumbBox.appendChild(thumbPhoto);
+
+    thumbnailIndex++;
+}
+
+// thumbBox.onclick = (event) => {
+//     let index = parseInt($(event.target).attr('data-number'));
+//     loadPhoto(index);
+//     currentPhoto = index;
+// };

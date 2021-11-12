@@ -14,12 +14,21 @@ h1 {
 
 #photo-viewer {
   display: flex;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
-.photo-with-descr {
+#photo-with-descr {
   position: relative;
   height: 600px;
+}
+
+.text-box {
+  background-color: rgb(64, 64, 64, 0.6);
+  color: whitesmoke;
+  border-radius: 10px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
 }
 
 .chosen-photo {
@@ -28,22 +37,15 @@ h1 {
   border-radius: 10px;
 }
 
-.text-box {
-  background-color: rgb(64, 64, 64, 0.8);
-  color: whitesmoke;
-  border-radius: 10px;
-  width: 100%;
-  position: absolute;
-  bottom: 0px;
-}
-
 .title,
-.desription {
-  margin: 10px;
+.description {
+  margin: 5px;
+  padding: 20px;
 }
 
 .arrow {
   width: 60px;
+  padding: 20px;
 }
 
 .right {
@@ -66,6 +68,11 @@ h1 {
 }
 
 .thumbImage {
+  width: 50px;
+  height: 50px;
+}
+
+.thumbnail {
   width: 50px;
   height: 50px;
   margin: 10px;

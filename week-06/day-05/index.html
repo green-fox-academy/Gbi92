@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500&display=swap" rel="stylesheet">
+    <title>Photo Gallery</title>
+</head>
+<body>
+    <h1>Gallery</h1>
+    <div id="gallery">
+        <div id="photo-viewer">
+            <div class="nav-left">
+                <img src="images/arrow.svg" alt="arrow icon" class="left arrow">
+            </div>
+            <div id="photo-with-descr">
+                <img src="images/img0.jpg" class="chosen-photo">
+                <div class="text-box">
+                    <h2 class="title"></h2>
+                    <p class="description"></p>
+                </div>
+            </div>
+            <div class="nav-right">
+                <img src="images/arrow.svg" alt="arrow icon" class="right arrow">
+            </div>
+        </div>
+        <div id="thumbnail-container">
+            <div class="thumbnail">
+                <p class="thumb-title"></p>
+                <img src="images/img0.jpg" class="thumbImage" data-number="">
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

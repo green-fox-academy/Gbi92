@@ -5,6 +5,8 @@ body {
 
 h1 {
   margin: 50px 0px 0px 50px;
+  font-size: 50px;
+  font-weight: 200;
 }
 
 #gallery {
@@ -43,6 +45,11 @@ h1 {
   padding: 20px;
 }
 
+.description {
+  font-weight: 200;
+  font-size: 20px;
+}
+
 .arrow {
   width: 60px;
   padding: 20px;
@@ -55,9 +62,20 @@ h1 {
 .nav-left,
 .nav-right {
   width: 70px;
-  background-color: grey;
+  background-color: #1a5c71;
+  opacity: 0.6;
   border-radius: 10px;
   display: flex;
+}
+
+.nav-left:hover,
+.nav-right:hover,
+.thumbnail:hover {
+  cursor: pointer;
+}
+
+.arrow:hover {
+  filter: invert(0.5) sepia(1);
 }
 
 #thumbnail-container {
@@ -89,7 +107,8 @@ h1 {
   margin: 5px;
   padding: 5px;
   text-align: center;
-  font-size: small;
+  font-size: 10px;
+  font-weight: 200;
   border: grey 1px solid;
   border-radius: 3px;
   position: absolute;
@@ -98,4 +117,10 @@ h1 {
 
 .thumbnail:hover .thumb-title {
   display: block;
+}
+
+.active {
+  box-shadow: black 5px 10px 8px;
+  width: 55px;
+  height: 55px;
 }

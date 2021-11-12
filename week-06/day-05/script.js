@@ -40,11 +40,6 @@ let imagesData = [
         photo: './images/img7.jpg',
         title: 'Lorem',
         description: 'Fringilla phasellus faucibus scelerisque eleifend donec pretium. Non nisi est sit amet facilisis.'
-    },
-    {
-        photo: './images/img8.jpg',
-        title: 'Lorem',
-        description: 'Fringilla phasellus faucibus scelerisque eleifend donec pretium. Non nisi est sit amet facilisis.'
     }
 ];
 
@@ -59,6 +54,7 @@ function loadPhoto(photoNumber) {
   photo.setAttribute('src', imagesData[photoNumber].photo);
   photoTitle.textContent = imagesData[photoNumber].title;
   photoDescr.textContent = imagesData[photoNumber].description;
+  //activateThumb(photoNumber);
 }
 
 let currentPhoto = 0;
@@ -68,23 +64,23 @@ loadPhoto(currentPhoto);
 
 //arrow clicks:
 leftArrow.onclick = () => {  
-    if(currentPhoto == 0 ){
-        currentPhoto = imagesData.length-1;
-        loadPhoto(currentPhoto);
-    }else{
-        currentPhoto--;
-        loadPhoto(currentPhoto);
-    }
+  if(currentPhoto == 0 ){
+    currentPhoto = imagesData.length-1;
+    loadPhoto(currentPhoto);
+  }else{
+    currentPhoto--;
+    loadPhoto(currentPhoto);
+  }
 };
 
 rightArrow.onclick = () => {  
-    if(currentPhoto < imagesData.length-1) {
-        currentPhoto++;
-        loadPhoto(currentPhoto);
-    }else{
-        currentPhoto = 0
-        loadPhoto(currentPhoto);
-    }
+  if(currentPhoto < imagesData.length-1) {
+    currentPhoto++;
+    loadPhoto(currentPhoto);
+  }else{
+    currentPhoto = 0
+    loadPhoto(currentPhoto);
+  }
 };
 
 //thumbnails:
@@ -92,6 +88,7 @@ for (let i = 0; i < imagesData.length; i++) {
     const thumbBox = document.createElement('div');
     thumbBox.setAttribute('class', 'thumbnail');
     thumbBox.setAttribute('onclick', `loadPhoto(${i})`);
+    thumbBox.setAttribute('id', i);
 
     const thumbTitle = document.createElement('p');
     thumbTitle.setAttribute('class', 'thumb-title');
@@ -105,3 +102,11 @@ for (let i = 0; i < imagesData.length; i++) {
     thumbBox.appendChild(thumbTitle);
     thumbBox.appendChild(thumbPhoto);
 }
+
+// const thumbnail = document.querySelector('.thumbnail');
+
+// function activateThumb(photoNum) {
+//   if(thumbnail.getAttribute('id') === photoNum) {
+//     thumbnail.setAttribute('class', 'thumbnail active');
+//   }
+// }

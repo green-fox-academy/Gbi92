@@ -73,10 +73,10 @@ app.get('/', (req, res) => {
     });
   } else {
     const filtered = cocktails.filter(el => el.contains.includes(req.query.alcohol));
-      res.render('home', {
-        cocktails: filtered,
-        alcoholList: alcoholList
-      });
+    res.render('home', {
+      cocktails: filtered,
+      alcoholList: alcoholList
+    });
   }
 });
 

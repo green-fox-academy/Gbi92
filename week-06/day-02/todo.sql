@@ -4,9 +4,10 @@ CREATE DATABASE todo_app;
 USE todo_app;
 
 CREATE TABLE todos (
-    id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id INTEGER NOT NULL AUTO_INCREMENT,
     task VARCHAR(255) NOT NULL,
-    isDone BOOLEAN NOT NULL DEFAULT false
+    isDone BOOLEAN NOT NULL DEFAULT false,
+    PRIMARY KEY(id)
 );
 
 INSERT INTO todos (task) VALUES ('Walk the dog'), ('Buy milk'), ('Do homework');

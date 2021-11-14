@@ -78,7 +78,7 @@ for (let i = 0; i < imagesData.length; i++) {
   const thumbBox = document.createElement('div');
   thumbBox.setAttribute('class', 'thumbnail');
   thumbBox.setAttribute('onclick', `loadPhoto(${i})`);
-  thumbBox.setAttribute('id', 'id' + i);
+  thumbBox.setAttribute('id', `id${i}`);
 
   const thumbTitle = document.createElement('p');
   thumbTitle.setAttribute('class', 'thumb-title');
@@ -95,6 +95,12 @@ for (let i = 0; i < imagesData.length; i++) {
 }
 
 function loadPhoto(photoNumber) {
+  const prevThumbBox = document.querySelector('.active');
+  const prevThumbPhoto = document.querySelector('.activeThumbPhoto');
+  if(prevThumbBox && prevThumbPhoto) {
+    deactivateThumb(prevThumbBox, prevThumbPhoto);
+  }
+  
   photo.setAttribute('src', imagesData[photoNumber].photo);
   photoTitle.textContent = imagesData[photoNumber].title;
   photoDescr.textContent = imagesData[photoNumber].description;
@@ -104,10 +110,14 @@ function loadPhoto(photoNumber) {
 //onLoad:
 loadPhoto(currentPhoto);
 
+function deactivateThumb(prevThumb, prevPhoto) {
+  prevThumb.classList.remove('active');
+  prevPhoto.classList.remove('activeThumbPhoto');
+}
+
 function activateThumb(photoNum) {
   const thumbBox = document.querySelector(`#id${photoNum}`);
   const thumbPhoto = document.querySelector(`#photo${photoNum}`);
-  console.log(thumbPhoto);
   thumbBox.classList.add('active');
   thumbPhoto.classList.add('activeThumbPhoto');
 }

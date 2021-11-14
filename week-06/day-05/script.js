@@ -50,17 +50,7 @@ const rightArrow = document.querySelector('.nav-right');
 const leftArrow = document.querySelector('.nav-left');
 const thumbContainer = document.querySelector('#thumbnail-container');
 
-function loadPhoto(photoNumber) {
-  photo.setAttribute('src', imagesData[photoNumber].photo);
-  photoTitle.textContent = imagesData[photoNumber].title;
-  photoDescr.textContent = imagesData[photoNumber].description;
-  //activateThumb(photoNumber);
-}
-
 let currentPhoto = 0;
-
-//onLoad:
-loadPhoto(currentPhoto);
 
 //arrow clicks:
 leftArrow.onclick = () => {  
@@ -85,28 +75,39 @@ rightArrow.onclick = () => {
 
 //thumbnails:
 for (let i = 0; i < imagesData.length; i++) {
-    const thumbBox = document.createElement('div');
-    thumbBox.setAttribute('class', 'thumbnail');
-    thumbBox.setAttribute('onclick', `loadPhoto(${i})`);
-    thumbBox.setAttribute('id', i);
+  const thumbBox = document.createElement('div');
+  thumbBox.setAttribute('class', 'thumbnail');
+  thumbBox.setAttribute('onclick', `loadPhoto(${i})`);
+  thumbBox.setAttribute('id', 'id' + i);
 
-    const thumbTitle = document.createElement('p');
-    thumbTitle.setAttribute('class', 'thumb-title');
-    thumbTitle.innerText = imagesData[i].title;
+  const thumbTitle = document.createElement('p');
+  thumbTitle.setAttribute('class', 'thumb-title');
+  thumbTitle.innerText = imagesData[i].title;
 
-    const thumbPhoto = document.createElement('img');
-    thumbPhoto.setAttribute('class', 'thumbImage');
-    thumbPhoto.setAttribute('src', imagesData[i].photo);
+  const thumbPhoto = document.createElement('img');
+  thumbPhoto.setAttribute('class', 'thumbImage');
+  thumbPhoto.setAttribute('src', imagesData[i].photo);
+  thumbPhoto.setAttribute('id', `photo${i}`);
 
-    thumbContainer.appendChild(thumbBox);
-    thumbBox.appendChild(thumbTitle);
-    thumbBox.appendChild(thumbPhoto);
+  thumbContainer.appendChild(thumbBox);
+  thumbBox.appendChild(thumbTitle);
+  thumbBox.appendChild(thumbPhoto);
 }
 
-// const thumbnail = document.querySelector('.thumbnail');
+function loadPhoto(photoNumber) {
+  photo.setAttribute('src', imagesData[photoNumber].photo);
+  photoTitle.textContent = imagesData[photoNumber].title;
+  photoDescr.textContent = imagesData[photoNumber].description;
+  activateThumb(photoNumber);
+}
 
-// function activateThumb(photoNum) {
-//   if(thumbnail.getAttribute('id') === photoNum) {
-//     thumbnail.setAttribute('class', 'thumbnail active');
-//   }
-// }
+//onLoad:
+loadPhoto(currentPhoto);
+
+function activateThumb(photoNum) {
+  const thumbBox = document.querySelector(`#id${photoNum}`);
+  const thumbPhoto = document.querySelector(`#photo${photoNum}`);
+  console.log(thumbPhoto);
+  thumbBox.classList.add('active');
+  thumbPhoto.classList.add('activeThumbPhoto');
+}

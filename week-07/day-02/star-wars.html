@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Wars API</title>
+    <style>
+       form {
+         margin: 20px;
+       }
+
+        #search-result {
+          display: flex;
+          justify-content: space-around;
+        }
+
+        ul {
+          list-style-type: none;
+        }
+
+        li {
+          padding: 5px;
+        }
+
+        .clickable:hover {
+          cursor: pointer;
+        }
+
+        .char-info {
+          background-color: thistle;
+        }
+
+        .movies {
+          background-color: tomato;
+        }
+    </style>
+</head>
+<body>
+    <form>
+      <label for="search">Enter character name: </label>
+      <input type="text" name="search" id="search">
+      <button type="button">search</button>
+    </form>
+    <div id="search-result">
+      <div class="left">
+        <ul class="char-info"></ul>
+      </div>
+      <div class="right">
+        <ul class="movies"></ul>
+      </div>
+    </div>
+    <script src="./star-wars.js"></script>
+</body>
+</html>

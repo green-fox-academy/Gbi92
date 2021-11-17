@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8" />
+    <title>REST Backend API - Frontend</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+</head>
+<body>
+<div class="container">
+    <div class="header clearfix">
+        <h3 class="text-muted">REST Backend API - Frontend</h3>
+    </div>
+
+    <p>Ez a frontend alkalmazás a végpontjaid kipróbálásához készült. A kipróbáláshoz nem szükséges, hogy módosítsd a <code>frontend.js</code> vagy az <code>index.html</code> fájlokat.</p>
+    <p>Ez a példa jól demonstrálja, hogyan zajlik a kommunikáció egy alkalmazás frontend-je és backend-je között. Mivel a frontend teljesen kész van és működőképes, így neked a feladatod már csak az, hogy a backend-et megírd és együttműködésre bírd őket.</p>
+
+    <div id="no-frontend" class="alert alert-danger hidden">
+      A <code>frontend.js</code> fájl betöltése sikertelen. Kérlek ellenőrizd:
+      <ul>
+        <li>Jó static mappát használsz?</li>
+        <li>Létezik <code>frontend.js</code> nevű fájl?</li>
+      </ul>
+    </div>
+
+    <div class="jumbotron">
+        <h1>Duplázás</h1>
+        <p class="lead">Próbáld ki a Duplázás feladatra készült megoldásod</p>
+        <div id="doubling_response"></div>
+        <p><button class="btn btn-lg btn-success disabled" href="#" role="button" id="doubling">Végpont kipróbálása</button></p>
+    </div>
+
+    <div class="jumbotron">
+        <h1>Üdvözlés</h1>
+        <p class="lead">Próbáld ki az Üdvözlés feladatra készült megoldásod</p>
+        <div id="greeter_response"></div>
+        <p><button class="btn btn-lg btn-success disabled" href="#" role="button" id="greeter">Végpont kipróbálása</button></p>
+    </div>
+
+    <div class="jumbotron">
+        <h1>A hozzáfűzés</h1>
+        <p class="lead">Próbáld ki az A hozzáfűzés feladatra készült megoldásod</p>
+        <div id="appenda_response"></div>
+        <p><button class="btn btn-lg btn-success disabled" href="#" role="button" id="appenda">Végpont kipróbálása</button></p>
+    </div>
+
+    <div class="jumbotron">
+        <h1>Do until</h1>
+        <p class="lead">Próbáld ki a Do until feladatra készült megoldásod</p>
+        <div id="dountil_response"></div>
+        <p><button class="btn btn-lg btn-success disabled" href="#" role="button" id="dountil">Végpont kipróbálása</button></p>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2017 Green Fox Academy</p>
+    </footer>
+    <script src="./frontend.js"></script>
+    <script>
+      fetch('./frontend.js').then((res) => {
+        if(res.status !== 200) {
+          document.querySelector('#no-frontend').classList.toggle('hidden');
+        }
+      })
+    </script>
+</div>
+</body>
+</html>

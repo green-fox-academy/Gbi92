@@ -58,7 +58,7 @@ app.post('/dountil/:operation', (req, res) => {
         for (let i = 0; i <= number; i++) {
           sum += i;
         }
-        res.status(200).json({
+        res.status(201).json({
           "result": sum
         });
       } else if (req.params.operation === 'factor') {
@@ -66,7 +66,7 @@ app.post('/dountil/:operation', (req, res) => {
           for (let i = 1; i <= number; i++) {
             factorial *= i;
           }
-          res.status(200).json({
+          res.status(201).json({
             "result": factorial
           });
         }
@@ -74,5 +74,5 @@ app.post('/dountil/:operation', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`listening on port ${PORT}`);
+  console.log(`listening on PORT ${PORT}`);
 });

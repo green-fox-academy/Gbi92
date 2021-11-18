@@ -5,7 +5,7 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 
-app.use(express.json());
+app.use(express.json()); //body parser
 
 app.post('/arrays', (req, res) => {
   let whatToDo = req.body.what;
@@ -18,17 +18,17 @@ app.post('/arrays', (req, res) => {
   } else {
     if (whatToDo === 'sum') {
       let sumOfNums = numbersArray.reduce((prev, curr) => prev + curr);
-      res.status(200).json({
+      res.status(201).json({
         "result": sumOfNums
       });
     } else if (whatToDo === 'multiply') {
         let product = numbersArray.reduce((prev, curr) => prev * curr);
-        res.status(200).json({
+        res.status(201).json({
           "result": product
         });
     } else if (whatToDo === 'double') {
         let doubled = numbersArray.map(num => num * 2);
-        res.status(200).json({
+        res.status(201).json({
           "result": doubled
         });
     }
@@ -36,5 +36,5 @@ app.post('/arrays', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`The server is running on ${PORT}`);
+  console.log(`The server is running on PORT ${PORT}`);
 });

@@ -31,7 +31,11 @@ app.get('/hello', (req, res) => {
 });
 
 app.get('/posts', (req, res) => {
-  const SQL_QUERY = 'SELECT * FROM posts;';
+  const SQL_QUERY = `
+    SELECT p.id, p.title, p.url, p.timestamp, p.score, u.user_name AS owner 
+    FROM posts AS p
+    JOIN users AS u ON p.user_id = u.user_id;`;
+  
   conn.query(SQL_QUERY, (err, rows) => {
     if (err) {
       console.log(err);
@@ -44,11 +48,11 @@ app.get('/posts', (req, res) => {
 });
 
 app.post('/posts', (req, res) => {
-  const SQL_INSERT_QUERY = 'INSERT INTO posts (title, url, timestamp) VALUES (?, ?, ?);';
+  const SQL_INSERT_QUERY = 'INSERT INTO posts (title, url, timestamp, user_id) VALUES (?, ?, ?, ?);';
 
   let newId = null;
 
-  conn.query(SQL_INSERT_QUERY, [req.body.title, req.body.url, Date.now()], (err, rows) => {
+  conn.query(SQL_INSERT_QUERY, [req.body.title, req.body.url, Date.now(), req.headers.user_id], (err, rows) => {
     if (err) {
       console.log(err);
       res.status(500).json('INTERNAL SERVER ERROR');
@@ -114,3 +118,5 @@ app.put('/posts/:id/downvote', (req, res) => {
     });
   });
 });
+
+app.post('/users'); //input fields for update users table

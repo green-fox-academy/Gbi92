@@ -34,7 +34,7 @@ app.get('/posts', (req, res) => {
   const SQL_QUERY = `
     SELECT p.id, p.title, p.url, p.timestamp, p.score, u.user_name AS owner 
     FROM posts AS p
-    JOIN users AS u ON p.user_id = u.user_id;`;
+    INNER JOIN users AS u ON p.user_id = u.user_id;`;
   
   conn.query(SQL_QUERY, (err, rows) => {
     if (err) {
@@ -60,7 +60,12 @@ app.post('/posts', (req, res) => {
     }
 
     newId = rows.insertId;
-    const SQL_SELECT_QUERY = 'SELECT * FROM posts WHERE id=?';
+
+    const SQL_SELECT_QUERY = `
+      SELECT p.id, p.title, p.url, p.timestamp, p.score, u.user_name AS owner 
+      FROM posts AS p
+      INNER JOIN users AS u ON p.user_id = u.user_id
+      WHERE id=?`;
 
     conn.query(SQL_SELECT_QUERY, [newId], (err, rows) => {
       if (err) {
@@ -83,7 +88,11 @@ app.put('/posts/:id/upvote', (req, res) => {
       return;
     }
 
-    const SQL_SELECT_QUERY = 'SELECT * FROM posts WHERE id=?';
+    const SQL_SELECT_QUERY = `
+      SELECT p.id, p.title, p.url, p.timestamp, p.score, u.user_name AS owner 
+      FROM posts AS p
+      INNER JOIN users AS u ON p.user_id = u.user_id 
+      WHERE id=?`;
 
     conn.query(SQL_SELECT_QUERY, [req.params.id], (err, rows) => {
       if (err) {
@@ -97,7 +106,10 @@ app.put('/posts/:id/upvote', (req, res) => {
 });
 
 app.put('/posts/:id/downvote', (req, res) => {
-  const SQL_UPDATE_QUERY = `UPDATE posts SET score = score - 1 WHERE id=?`;
+  const SQL_UPDATE_QUERY = `
+  UPDATE posts SET score = score - 1 
+    WHERE id=? 
+    AND score > 0`;
 
   conn.query(SQL_UPDATE_QUERY, [req.params.id], (err, rows) => {
     if (err) {
@@ -106,7 +118,11 @@ app.put('/posts/:id/downvote', (req, res) => {
       return;
     }
   
-    const SQL_SELECT_QUERY = 'SELECT * FROM posts WHERE id=?';
+    const SQL_SELECT_QUERY = `
+      SELECT p.id, p.title, p.url, p.timestamp, p.score, u.user_name AS owner 
+      FROM posts AS p
+      INNER JOIN users AS u ON p.user_id = u.user_id
+      WHERE id=?`;
   
     conn.query(SQL_SELECT_QUERY, [req.params.id], (err, rows) => {
       if (err) {
@@ -119,4 +135,73 @@ app.put('/posts/:id/downvote', (req, res) => {
   });
 });
 
-app.post('/users'); //input fields for update users table
+app.delete('/posts/:id', (req, res) => {
+  const SQL_SELECT_QUERY = `
+    SELECT p.id, p.title, p.url, p.timestamp, p.score, u.user_name AS owner 
+    FROM posts AS p
+    INNER JOIN users AS u ON p.user_id = u.user_id
+    WHERE id=?
+      AND p.user_id=?`;
+
+  const SQL_DELETE_QUERY = `
+    DELETE FROM posts
+    WHERE id=?
+      AND user_id=?`;
+
+  conn.query(SQL_SELECT_QUERY, [req.params.id, req.headers.user_id], (err, rows) => {
+    if (err) {
+      console.log(err);
+      res.status(500).json('INTERNAL SERVER ERROR');
+      return;
+    }
+
+    let deletedRow = rows[0];
+    deletedRow.owner = null;
+
+    // if (rows.length > 0) {
+    //   let deletedRow = rows[0];
+    //   deletedRow.owner = null;
+    //   res.status(404).json('error');
+    //   return;
+    // }
+
+    conn.query(SQL_DELETE_QUERY, [req.params.id, req.headers.user_id], (err, rows) => {
+      if (err) {
+        console.log(err);
+        res.status(500).json('INTERNAL SERVER ERROR');
+        return;
+      }
+    });
+    res.status(200).json(deletedRow);
+  });
+});
+
+app.put('/posts/:id', (req, res) => {
+  const SQL_UPDATE_QUERY = `
+    UPDATE posts SET title = ?, timestamp = ?
+      WHERE id=?
+      AND user_id=?`;
+  
+  conn.query(SQL_UPDATE_QUERY, [req.body.title, Date.now(), req.params.id, req.headers.user_id], (err, rows) => {
+    if (err) {
+      console.log(err);
+      res.status(500).json('INTERNAL SERVER ERROR');
+      return;
+    }
+
+    const SQL_SELECT_QUERY = `
+      SELECT p.id, p.title, p.url, p.timestamp, p.score, u.user_name AS owner 
+      FROM posts AS p
+      INNER JOIN users AS u ON p.user_id = u.user_id 
+      WHERE id=?`;
+
+    conn.query(SQL_SELECT_QUERY, [req.params.id], (err, rows) => {
+      if (err) {
+        console.log(err);
+        res.status(500).json('INTERNAL SERVER ERROR');
+        return;
+      }
+      res.status(200).json(rows);
+    });
+  });
+});

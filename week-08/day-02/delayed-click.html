@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Workshop: EventListeners</title>
+  </head>
+  <body>
+    <button>Click me</button>
+
+    <script>
+      'use strict';
+
+      const button = document.querySelector('button');
+      const body = document.querySelector('body');
+
+      button.addEventListener('click', () => {
+        setTimeout(() => {
+          const pTag = document.createElement('p');
+          pTag.innerText = '2 seconds elapsed';
+          body.appendChild(pTag);
+        }, 2000);
+      });
+    </script>
+  </body>
+</html>

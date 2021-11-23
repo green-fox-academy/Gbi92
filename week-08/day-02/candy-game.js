@@ -19,6 +19,7 @@ const speedField = document.querySelector('.speed');
 let candyCount = 0;
 let lollypopCount = 3;
 let speedCount = 0;
+//let candyRain = false; for later
 
 createCandies.addEventListener('click', () => {
   candyCount++;

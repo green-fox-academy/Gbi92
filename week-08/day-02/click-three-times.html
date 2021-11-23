@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Workshop: EventListeners</title>
+  </head>
+  <body>
+    <button>Click me</button>
+
+    <script>
+    'use strict';
+
+    const button = document.querySelector('button');
+    const body = document.querySelector('body');
+
+    let clickCounter = 1;
+
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        button.addEventListener('click', () => {
+          if (clickCounter === 3) {
+            const pTag = document.createElement('p');
+            pTag.innerText = '5 seconds elapsed and clicked 3 times';
+            body.appendChild(pTag);
+            clickCounter++;
+          } else {
+            clickCounter++;
+          }
+        });
+      }, 5000);
+    });
+    </script>
+  </body>
+</html>

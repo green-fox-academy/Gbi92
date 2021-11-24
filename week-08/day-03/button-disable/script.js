@@ -5,7 +5,7 @@ const catBtn = document.querySelector('#catBtn');
 const signUpBtn = document.querySelector('#signUp');
 
 form.addEventListener('change', () => {
-  if (form.dog.checked || form.cat.checked) {
+  if (form.dog.checked || form.cat.checked || form.fish.checked) {
     signUpBtn.removeAttribute('disabled');
   }
   if (form.yes.checked) {
@@ -13,12 +13,11 @@ form.addEventListener('change', () => {
   }
 });
 
-catBtn.addEventListener('submit', (event) => {
+form.addEventListener('submit', (event) => {
   event.preventDefault();
-  alert(`Thank you, you've successfully signed up for cat facts`);
-});
-
-signUpBtn.addEventListener('submit', (event) => {
-  event.preventDefault();
-  alert(`Thank you, you've successfully signed up for cat facts`);
+  if (form.no.checked) {
+    alert(`Sigh, we still added you to the cat facts list`);
+  } else {
+    alert(`Thank you, you've successfully signed up for cat facts`);
+  }
 });

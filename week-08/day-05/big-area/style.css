@@ -1,0 +1,27 @@
+.container {
+  width: 100%;
+  background-color: #000;
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 100px);
+}
+
+.item {
+  background-color: #b02aff;
+}
+
+.green {
+  background-color: #51d401;
+  grid-column: 2 / 4;
+  grid-row: 1 / 3;
+  display: grid;
+  grid-template-columns: 10% 1fr 1fr 10%;
+  grid-template-rows: 15% 1fr 1fr 15%;
+}
+
+.yellow {
+  background-color: #ffd629;
+  grid-column: 2 / 4;
+  grid-row: 2 / 4;
+}

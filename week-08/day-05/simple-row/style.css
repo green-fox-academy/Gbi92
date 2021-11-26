@@ -1,0 +1,18 @@
+.container {
+  width: 100%;
+  border: 3px solid #b02aff;
+  background-color: #b02aff;
+  display: grid;
+  gap: 2px;
+  grid-template-rows: 100px;
+  grid-template-columns: 1fr 60% 1fr;
+}
+
+.item {
+  background-color: #ffd629;
+  border: 2px solid #b02aff;
+}
+
+.green {
+  background-color: #51d401;
+}

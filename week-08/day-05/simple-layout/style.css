@@ -1,10 +1,9 @@
 body {
-  height: 90vh;
+  height: 100vh;
 }
 
 .container {
-  border: 1px solid black;
-  height: 70%;
+  height: 100%;
   display: grid;
   gap: 5px;
   grid-template-areas:
@@ -14,15 +13,15 @@ body {
     '. aside aside main main main main .'
     '. footer footer footer footer footer footer .';
   grid-template-rows: 70px auto auto auto 60px;
+  grid-template-columns: 10% 10% 10% 20% 20% 10% 5% 10%;
 }
 
 header {
   grid-area: header;
   background-color: #b02aff;
-  display: grid;
-  gap: 5px;
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 aside {
@@ -42,5 +41,7 @@ footer {
 
 .nav {
   background-color: #2aeaff;
-  grid-row: 2;
+  height: 20px;
+  width: 100px;
+  margin: 10px;
 }

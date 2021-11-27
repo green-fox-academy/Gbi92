@@ -158,13 +158,6 @@ app.delete('/posts/:id', (req, res) => {
     let deletedRow = rows[0];
     deletedRow.owner = null;
 
-    // if (rows.length > 0) {
-    //   let deletedRow = rows[0];
-    //   deletedRow.owner = null;
-    //   res.status(404).json('error');
-    //   return;
-    // }
-
     conn.query(SQL_DELETE_QUERY, [req.params.id, req.headers.user_id], (err, rows) => {
       if (err) {
         console.log(err);

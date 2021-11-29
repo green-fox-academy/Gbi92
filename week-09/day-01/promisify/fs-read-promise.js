@@ -7,8 +7,9 @@ async function readFile(filePath) {
     fs.readFile(filePath, (err, data) => {
       if (err) {
         reject(err);
+        return;
       } else {
-        resolve(data);
+        return resolve(data);
       }
     })
   })

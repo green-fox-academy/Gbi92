@@ -2,7 +2,7 @@
 
 const mysql = require('mysql');
 
-function mysqlQuery(query) {
+async function mysqlQuery(query) {
   return new Promise((resolve, reject) => {
     conn.query(query, (err, rows) => {
       if (err) {

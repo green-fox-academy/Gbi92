@@ -9,15 +9,16 @@ describe('Groot app', () => {
   describe('GET /groot endpoint', () => {
     it('should return the translated text if there is query parameter', (done) => {
 
-      let message = 'valami';
+      let myMessage = 'valami';
 
       request(app)
-        .get(`/groot?message=${message}`)
+        .get('/groot')
+        .query({message: myMessage})
         .expect(200)
         .end((err, res) => {
           expect(err).to.be.null;
           expect(res.body).to.be.eql({
-            received: message,
+            received: myMessage,
             translated: "I am Groot!"
           });
 

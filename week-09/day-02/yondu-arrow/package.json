@@ -1,0 +1,23 @@
+{
+  "name": "yondu-arrow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3",
+    "supertest": "^6.1.6"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

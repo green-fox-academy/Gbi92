@@ -1,0 +1,31 @@
+button {
+  padding: 8px 30px;
+  border: none;
+  border-radius: 3px;
+}
+
+.blue {
+  background-color: rgba(66, 97, 161, 0.9);
+  color: #c2d4fc;
+  box-shadow: 0 3px rgba(66, 97, 161, 1);
+}
+
+.green {
+  background-color: rgba(26, 168, 84, 0.8);
+  color: #a3f6c5;
+  box-shadow: 0 3px rgba(26, 168, 84, 1);
+}
+
+.red {
+  background-color: rgba(211, 66, 50, 0.8);
+  color: #fca89e;
+  box-shadow: 0 3px rgba(211, 66, 50, 1);
+}
+
+button:hover {
+  opacity: 0.6;
+}
+
+button:active {
+  opacity: 1;
+}

@@ -35,6 +35,10 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/html/index.html');
 });
 
+app.get('/newpost', (req, res) => {
+  res.sendFile(__dirname + '/public/html/post.html');
+});
+
 app.get('/posts', (req, res) => {
   const SQL_QUERY = `
     SELECT p.id, p.title, p.url, p.timestamp, p.score, u.user_name AS owner 

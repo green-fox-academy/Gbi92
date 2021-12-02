@@ -1,0 +1,51 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Lato', sans-serif;
+  background: #eeeeee;
+}
+
+header {
+  height: 250px;
+  background: url('../assets/milky-way-g327fe2e98_1920.jpg');
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1,
+h2 {
+  color: #fff;
+}
+
+h1 {
+  letter-spacing: 55px;
+}
+
+h2 {
+  font-size: 0.8em;
+  word-spacing: 8px;
+}
+
+form {
+  width: 400px;
+  height: 200px;
+  padding: 5px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+span {
+  color: red;
+}
+
+[type='submit'] {
+  width: 50%;
+  border: none;
+  background: #4aa3df;
+  color: #fff;
+  padding: 5px 55px;
+}

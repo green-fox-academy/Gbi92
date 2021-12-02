@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="postingStyle.css">
+  <link rel="stylesheet" href="../css/postingStyle.css">
   <link rel="preconnect" href="https://fonts.googleapis.com"> 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
@@ -13,14 +13,13 @@
     <h1>SPACE</h1>
     <h2>POST TO /R/SPACE</h2>
   </header>
-  <body>
-    <form>
-      <label for="title"><span>*</span>title</label>
-      <textarea name="title" id="title" cols="30" rows="10"></textarea>
-      <label for="url"></label>
-      <input type="url" name="url" id="url" required>
-      <button type="submit">SUBMIT</button>
-    </form>
-  </body>
+  <form>
+    <label for="title"><span>*</span>title</label>
+    <textarea name="title" id="title" cols="30" rows="5" autofocus></textarea>
+    <label for="url">URL</label>
+    <input type="url" name="url" id="url" required>
+    <button type="submit">SUBMIT</button>
+  </form>
+  <script src="../js/add-post.js"></script>
 </body>
 </html>

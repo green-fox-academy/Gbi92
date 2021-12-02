@@ -2,14 +2,75 @@ body {
   margin: 0px;
   padding: 0px;
   font-family: 'Lato', sans-serif;
+  background: #eeeeee;
 }
 
 header {
   height: 250px;
   background: url('../assets/milky-way-g327fe2e98_1920.jpg');
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
   color: #fff;
   letter-spacing: 55px;
+}
+
+main {
+  margin: 10px auto;
+  width: 800px;
+  display: flex;
+  justify-content: space-between;
+}
+
+section {
+  background: #fff;
+  margin-right: 10px;
+  flex-grow: 2;
+}
+
+aside {
+  flex-grow: 1;
+}
+
+article {
+  display: flex;
+  height: 120px;
+  border-bottom: 1px solid lightgray;
+  align-items: center;
+  margin: 2px;
+}
+
+.aboutDetails {
+  background: #e4e3e5;
+  padding: 10px;
+}
+
+h3 {
+  background: #fbfbfb;
+  padding: 10px;
+}
+
+.postBtn {
+  border: none;
+  background: #4aa3df;
+  color: #fff;
+  padding: 5px 55px;
+}
+
+.vote,
+.post {
+  padding: 5px 10px;
+}
+
+.postInfo,
+.url {
+  font-size: 0.6em;
+}
+
+a {
+  text-decoration: none;
+  color: #4aa3df;
 }

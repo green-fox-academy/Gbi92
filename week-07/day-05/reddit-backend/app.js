@@ -7,6 +7,7 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.json());
+app.use(express.static('public'));
 
 const conn = mysql.createConnection({
   host: 'localhost',
@@ -28,6 +29,10 @@ conn.connect((error) => {
 
 app.get('/hello', (req, res) => {
   res.send('hello world');
+});
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public/html/index.html');
 });
 
 app.get('/posts', (req, res) => {

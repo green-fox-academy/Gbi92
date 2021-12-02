@@ -20,7 +20,7 @@ h1 {
 
 main {
   margin: 10px auto;
-  width: 800px;
+  width: 80%;
   display: flex;
   justify-content: space-between;
 }
@@ -28,7 +28,7 @@ main {
 section {
   background: #fff;
   margin-right: 10px;
-  flex-grow: 2;
+  flex-grow: 3;
 }
 
 aside {

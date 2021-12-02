@@ -1,0 +1,15 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Lato', sans-serif;
+}
+
+header {
+  height: 250px;
+  background: url('../assets/milky-way-g327fe2e98_1920.jpg');
+}
+
+h1 {
+  color: #fff;
+  letter-spacing: 55px;
+}

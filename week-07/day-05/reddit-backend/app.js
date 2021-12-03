@@ -27,10 +27,6 @@ conn.connect((error) => {
   //conn.end();
 });
 
-app.get('/hello', (req, res) => {
-  res.send('hello world');
-});
-
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/html/index.html');
 });
@@ -43,7 +39,8 @@ app.get('/posts', (req, res) => {
   const SQL_QUERY = `
     SELECT p.id, p.title, p.url, p.timestamp, p.score, u.user_name AS owner 
     FROM posts AS p
-    INNER JOIN users AS u ON p.user_id = u.user_id;`;
+    INNER JOIN users AS u ON p.user_id = u.user_id
+    ORDER BY p.id DESC;`;
   
   conn.query(SQL_QUERY, (err, rows) => {
     if (err) {
@@ -109,7 +106,7 @@ app.put('/posts/:id/upvote', (req, res) => {
         res.status(500).json('INTERNAL SERVER ERROR');
         return;
       }
-      res.status(200).json(rows);
+      res.status(200).json(rows[0]);
     });
   });
 });
@@ -139,7 +136,7 @@ app.put('/posts/:id/downvote', (req, res) => {
         res.status(500).json('INTERNAL SERVER ERROR');
         return;
       }
-      res.status(200).json(rows);
+      res.status(200).json(rows[0]);
     });
   });
 });

@@ -73,13 +73,13 @@ app.post('/posts', (req, res) => {
       INNER JOIN users AS u ON p.user_id = u.user_id
       WHERE id=?`;
 
-    conn.query(SQL_SELECT_QUERY, [newId], (err, rows) => {
+    conn.query(SQL_SELECT_QUERY, [newId], (err, result) => {
       if (err) {
         console.log(err);
         res.status(500).json('INTERNAL SERVER ERROR');
         return;
       }
-      res.status(200).json(rows);
+      res.status(200).json(result[0]);
     });
   });
 });
@@ -142,6 +142,10 @@ app.put('/posts/:id/downvote', (req, res) => {
 });
 
 app.delete('/posts/:id', (req, res) => {
+  const SQL_CHECK_QUERY = `
+    SELECT user_id FROM posts
+    WHERE id=?;`;
+
   const SQL_SELECT_QUERY = `
     SELECT p.id, p.title, p.url, p.timestamp, p.score, u.user_name AS owner 
     FROM posts AS p
@@ -154,53 +158,89 @@ app.delete('/posts/:id', (req, res) => {
     WHERE id=?
       AND user_id=?`;
 
-  conn.query(SQL_SELECT_QUERY, [req.params.id, req.headers.user_id], (err, rows) => {
+  conn.query(SQL_CHECK_QUERY, [req.params.id], (err, result) => {
     if (err) {
       console.log(err);
       res.status(500).json('INTERNAL SERVER ERROR');
       return;
     }
 
-    let deletedRow = rows[0];
-    deletedRow.owner = null;
+    if (result.length === 0) {
+      res.status(404).json({message: `Post doesn't exist`});
+      return;
+    } else if (result[0].user_id !== parseInt(req.headers.user_id)) {
+      res.status(403).json({message: `Not authorized to delete post`});
+      return;
+    } 
 
-    conn.query(SQL_DELETE_QUERY, [req.params.id, req.headers.user_id], (err, rows) => {
+    conn.query(SQL_SELECT_QUERY, [req.params.id, req.headers.user_id], (err, rows) => {
       if (err) {
         console.log(err);
         res.status(500).json('INTERNAL SERVER ERROR');
         return;
       }
+  
+      let deletedRow = rows[0];
+      deletedRow.owner = null;
+  
+      conn.query(SQL_DELETE_QUERY, [req.params.id, req.headers.user_id], (err, rows) => {
+        if (err) {
+          console.log(err);
+          res.status(500).json('INTERNAL SERVER ERROR');
+          return;
+        }
+      });
+      res.status(200).json(deletedRow);
     });
-    res.status(200).json(deletedRow);
   });
 });
 
 app.put('/posts/:id', (req, res) => {
-  const SQL_UPDATE_QUERY = `
-    UPDATE posts SET title = ?, timestamp = ?
-      WHERE id=?
-      AND user_id=?`;
-  
-  conn.query(SQL_UPDATE_QUERY, [req.body.title, Date.now(), req.params.id, req.headers.user_id], (err, rows) => {
+  const SQL_CHECK_QUERY = `
+    SELECT user_id FROM posts
+    WHERE id=?;`;
+
+  conn.query(SQL_CHECK_QUERY, [req.params.id], (err, result) => {
     if (err) {
       console.log(err);
       res.status(500).json('INTERNAL SERVER ERROR');
       return;
     }
 
-    const SQL_SELECT_QUERY = `
-      SELECT p.id, p.title, p.url, p.timestamp, p.score, u.user_name AS owner 
-      FROM posts AS p
-      INNER JOIN users AS u ON p.user_id = u.user_id 
-      WHERE id=?`;
+    if (result.length === 0) {
+      res.status(404).json({message: `Post doesn't exist`});
+      return;
+    } else if (result[0].user_id !== parseInt(req.headers.user_id)) {
+      res.status(403).json({message: `Not authorized to edit post`});
+      return;
+    } 
 
-    conn.query(SQL_SELECT_QUERY, [req.params.id], (err, rows) => {
+    const SQL_UPDATE_QUERY = `
+      UPDATE posts SET title = ?, url = ?, timestamp = ?
+      WHERE id=?
+        AND user_id=?`;
+    
+    conn.query(SQL_UPDATE_QUERY, [req.body.title, req.body.url, Date.now(), req.params.id, req.headers.user_id], (err, response) => {
       if (err) {
         console.log(err);
         res.status(500).json('INTERNAL SERVER ERROR');
         return;
       }
-      res.status(200).json(rows);
+  
+      const SQL_SELECT_QUERY = `
+        SELECT p.id, p.title, p.url, p.timestamp, p.score, u.user_name AS owner 
+        FROM posts AS p
+        INNER JOIN users AS u ON p.user_id = u.user_id 
+        WHERE id=?`;
+  
+      conn.query(SQL_SELECT_QUERY, [req.params.id], (err, rows) => {
+        if (err) {
+          console.log(err);
+          res.status(500).json('INTERNAL SERVER ERROR');
+          return;
+        }
+        res.status(200).json(rows[0]);
+      });
     });
   });
 });

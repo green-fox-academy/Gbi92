@@ -22,9 +22,8 @@ function loadScriptAsync(src) {
     loadScript(src, (err, script) => {
       if (err) {
         reject(err);
-        return;
       } else {
-        return resolve(script);
+        resolve(script);
       }
     })
   })

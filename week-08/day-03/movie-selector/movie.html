@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+  <title>Movie selector</title>
+</head>
+<body>
+  <div class="select-card">
+    <div class="positioning">
+      <h1>Movie Selector</h1>
+      <select name="genre" id="genre-select">
+        <option value="">Select a genre</option>
+        <option value="sci-fi">Sci-fi</option>
+        <option value="drama">Drama</option>
+        <option value="comedy">Comedy</option>
+      </select>
+      <select name="movie" id="movie-select">
+        <option value="">Select a movie</option>
+        <option value="Moon" class="sci-fi">Moon</option>
+        <option value="2001: A Space Odyssey" class="sci-fi">2001: A Space Odyssey</option>
+        <option value="Contact" class="sci-fi">Contact</option>
+        <option value="Darkest Hour" class="drama">Darkest Hour</option>
+        <option value="There Will Be Blood" class="drama">There Will Be Blood</option>
+        <option value="American Beaut" class="drama">American Beauty</option>
+        <option value="Airplane!" class="comedy">Airplane!</option>
+        <option value="Deadpool" class="comedy">Deadpool</option>
+        <option value="Wayne's World" class="comedy">Wayne's World</option>
+      </select>
+      <p class="result">The selected movie is: -</p>
+    </div>
+  </div>
+
+  <script src="./movie-select.js"></script>
+</body>
+</html>

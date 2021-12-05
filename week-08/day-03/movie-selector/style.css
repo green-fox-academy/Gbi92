@@ -1,0 +1,21 @@
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.select-card {
+  border-radius: 10px;
+  box-shadow: 20px 20px #818fd1;
+  padding: 30px 20px;
+  width: 400px;
+  background-color: #f3baba;
+  display: flex;
+  justify-content: center;
+}
+
+select {
+  border: none;
+}
+
+span {
+  color: #818fd1;
+}

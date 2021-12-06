@@ -1,0 +1,52 @@
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #ecf0f1;
+  display: flex;
+  justify-content: center;
+}
+
+.game {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  padding: 30px 40px 10px 40px;
+  margin: 15px;
+  border-radius: 5px;
+  width: 330px;
+  height: 270px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.answer {
+  padding: 10px 3px;
+  width: 300px;
+  margin: 5px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #3498db;
+  color: #fff;
+}
+
+.answer:hover {
+  cursor: pointer;
+}
+
+.correct {
+  background-color: #27ae60;
+}
+
+.wrong {
+  background-color: #e74c3c;
+}
+
+a {
+  font-weight: 300;
+  font-size: 0.6em;
+}

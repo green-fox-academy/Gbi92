@@ -74,3 +74,14 @@ app.get('/api/game', (req, res) => {
     });
   });
 });
+
+app.get('/api/questions', (req, res) => {
+  conn.query('SELECT * FROM questions', (err, rows) => {
+    if (err) {
+      res.status(500).json({message: err});
+      return;
+    }
+
+    res.status(200).json(rows);
+  });
+});

@@ -74,6 +74,10 @@ button {
   width: 80px;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 a {
   font-size: 0.7em;
   text-decoration: none;

@@ -47,7 +47,7 @@ fetch('http://localhost:3000/posts')
     post.className = 'post';
     const title = document.createElement('p');
     title.className = 'title';
-    title.innerHTML = `${el.title} <span class="url">(${el.url})</span>`;
+    title.innerHTML = `${el.title} <a href="${el.url}" class="url">(${el.url})</a>`;
     const postInfo = document.createElement('p');
     postInfo.className = 'postInfo';
     postInfo.innerHTML = `submitted <span class="date">${calculatePassedTime(el.timestamp)}</span> days ago by <a href="#">${el.owner}</a>`;

@@ -85,3 +85,24 @@ app.get('/api/questions', (req, res) => {
     res.status(200).json(rows);
   });
 });
+
+app.post('api/questions', (req, res) => {
+  conn.query('INSERT INTO questions (question) VALUES (?)', [req.body.question], (err, rows) => {
+    if (err) {
+      res.status(500).json({message: err});
+      return;
+    }
+
+    const SQL_INSERT_QUERY = `INSERT INTO answers (question_id, answer, is_correct) VALUES (?, ?, ?)`;
+
+    for (let i = 0; i < req.body.answers.length; i++) {
+      conn.query(SQL_INSERT_QUERY, [rows.insertId, req.body.answers[i]['answer_' + (i + 1)], req.body.answers[i].is_correct], (err, rows) => {
+        if (err) {
+          res.status(500).json({message: err});
+          return;
+        }
+      });
+    }
+    res.status(201).json();
+  });
+});

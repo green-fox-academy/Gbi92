@@ -33,3 +33,44 @@ app.get('/game', (req, res) => {
 app.get('/questions', (req, res) => {
   res.sendFile(__dirname + '/public/html/manage-questions.html');
 });
+
+app.get('/api/game', (req, res) => {
+  const SQL_SELECT_QUERY = `
+  SELECT * FROM questions AS q
+  INNER JOIN answers AS a ON q.id = a.question_id
+  WHERE q.id = ?`;
+
+  conn.query('SELECT id FROM questions;', (err, rows) => {
+    if (err) {
+      res.status(500).json({message: err});
+      return;
+    }
+
+    let randomIndex = Math.floor(Math.random() * rows.length);
+
+    conn.query(SQL_SELECT_QUERY, [rows[randomIndex].id], (err, rows) => {
+      if (err) {
+        res.status(500).json({message: err});
+        return;
+      }
+
+      let answersArr = [];
+      for (let i = 0; i < rows.length; i++) {
+        let answer = {};
+
+        answer['question_id'] = rows[i].question_id;
+        answer['id'] = rows[i].id;
+        answer['answer_' + (i + 1)] = rows[i].answer;
+        answer['is_correct'] = rows[i].is_correct;
+
+        answersArr.push(answer);
+      }
+
+      res.status(200).json({
+        id: rows[0].question_id,
+        question: rows[0].question,
+        answers: answersArr
+      });
+    });
+  });
+});

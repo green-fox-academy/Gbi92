@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../css/guestions-style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
+  <title>Manage questions</title>
+</head>
+<body>
+  <div class="manage">
+    <p>Manage questions</p>
+    <div class="container">
+      <div class="question">
+        <p>test?</p>
+        <a href="#">delete</a>
+      </div>
+      <div class="question">
+        <p>test?</p>
+        <a href="#">delete</a>
+      </div>
+      <div class="question">
+        <p>test?</p>
+        <a href="#" class="delete">delete</a>
+      </div>
+      <div class="question">
+        <p>Who is from the House Targaryen, First of Her Name, the Unburnt, Queen of the Andals and the First Men, Khaleesi of the Great Grass Sea, Breaker of Chains, and Mother of Dragon?</p>
+        <a href="#">delete</a>
+      </div>
+    </div>
+  </div>
+  <div class="create">
+    <p>Create a new question</p>
+    <div class="form-container">
+      <form>
+        <input type="text" name="newQuestion" id="newQuestion" placeholder="Type your question here">
+        <p>Answers</p>
+        <div>
+          <label for="answerOne">#1</label>
+          <input type="text" name="one" placeholder="Type your answer here">
+          <input type="radio" name="answer" id="answerOne" value="">
+        </div>
+        <div>
+          <label for="answerTwo">#2</label>
+          <input type="text" name="two" placeholder="Type your answer here">
+          <input type="radio" name="answer" id="answerTwo" value="">
+        </div>
+        <div>
+          <label for="answerThree">#3</label>
+          <input type="text" name="three" placeholder="Type your answer here">
+          <input type="radio" name="answer" id="answerThree" value="">
+        </div>
+        <div>
+          <label for="answerFour">#4</label>
+          <input type="text" name="four" placeholder="Type your answer here">
+          <input type="radio" name="answer" id="answerFour" value="">
+        </div>
+        <button type="submit">SUBMIT</button>
+      </form>
+    </div>
+    <a href="http://localhost:8080/game">Go back to the game</a>
+  </div>
+</body>
+</html>

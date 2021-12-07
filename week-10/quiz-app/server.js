@@ -86,7 +86,7 @@ app.get('/api/questions', (req, res) => {
   });
 });
 
-app.post('api/questions', (req, res) => {
+app.post('/api/questions', (req, res) => {
   conn.query('INSERT INTO questions (question) VALUES (?)', [req.body.question], (err, rows) => {
     if (err) {
       res.status(500).json({message: err});

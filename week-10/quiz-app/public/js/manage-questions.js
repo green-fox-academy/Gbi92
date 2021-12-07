@@ -32,8 +32,7 @@ container.addEventListener('click', (event) => {
       method: 'DELETE',
       headers: {'Content-Type': 'application/json'} 
     })
-    .then(res => res.json())
-    .then(data => window.location.href = 'http://localhost:8080/questions')
+    .then(() => window.location.href = 'http://localhost:8080/questions')
   }
 });
 
@@ -43,7 +42,7 @@ form.addEventListener('submit', (e) => {
   fetch('http://localhost:8080/api/questions', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
-    body: {
+    body: JSON.stringify({
       question: form.newQuestion.value,
       answers: [
         {
@@ -51,20 +50,20 @@ form.addEventListener('submit', (e) => {
           is_correct: form.answerOne.checked ? 1 : 0
         },
         {
-          answer_1: form.two.value,
-          is_correct: 0
+          answer_2: form.two.value,
+          is_correct: form.answerTwo.checked ? 1 : 0
         },
         {
-          answer_1: form.three.value,
-          is_correct: 0
+          answer_3: form.three.value,
+          is_correct: form.answerThree.checked ? 1 : 0
         },
         {
-          answer_1: form.four.value,
-          is_correct: 0
+          answer_4: form.four.value,
+          is_correct: form.answerFour.checked ? 1 : 0
         }
       ]
-    }
+    })
   })
-  .then(res => res.json())
-  .then(data => window.location.href = 'http://localhost:8080/questions')
+  .then(() => window.location.href = 'http://localhost:8080/questions')
+  .catch((err) => console.log(err))
 });

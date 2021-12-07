@@ -52,6 +52,10 @@ form {
   color: red;
 }
 
+.delete:hover {
+  cursor: pointer;
+}
+
 [type='text'] {
   width: 340px;
   margin-bottom: 20px;
@@ -64,6 +68,10 @@ form {
 form div {
   margin-bottom: 10px;
   border-bottom: 1px solid lightgray;
+}
+
+.last {
+  border: none;
 }
 
 button {

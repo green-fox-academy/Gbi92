@@ -6,7 +6,7 @@ const answerContainer = document.querySelector('.answers');
 
 let score = 0;
 
-function fetchQuestion() {
+function fetchNewQuestion() {
   fetch('http://localhost:8080/api/game')
   .then(res => res.json())
   .then(data => {
@@ -23,7 +23,7 @@ function fetchQuestion() {
 }
 
 window.addEventListener('load', () => {
-  fetchQuestion();
+  fetchNewQuestion();
 });
 
 answerContainer.addEventListener('click', (event) => {
@@ -34,5 +34,5 @@ answerContainer.addEventListener('click', (event) => {
   } else {
     event.target.classList.add('wrong');
   }
-  setTimeout(fetchQuestion, 1000);
+  setTimeout(fetchNewQuestion, 1000);
 });

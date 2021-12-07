@@ -11,20 +11,7 @@
 <body>
   <div class="manage">
     <p>Manage questions</p>
-    <div class="container">
-      <div class="question">
-        <p>test?</p>
-        <a href="#">delete</a>
-      </div>
-      <div class="question">
-        <p>test?</p>
-        <a href="#">delete</a>
-      </div>
-      <div class="question">
-        <p>test?</p>
-        <a href="#" class="delete">delete</a>
-      </div>
-    </div>
+    <div class="container"></div>
   </div>
   <div class="create">
     <p>Create a new question</p>
@@ -47,7 +34,7 @@
           <input type="text" name="three" placeholder="Type your answer here">
           <input type="radio" name="answer" id="answerThree" value="">
         </div>
-        <div>
+        <div class="last">
           <label for="answerFour">#4</label>
           <input type="text" name="four" placeholder="Type your answer here">
           <input type="radio" name="answer" id="answerFour" value="">
@@ -57,5 +44,6 @@
     </div>
     <a href="http://localhost:8080/game">Go back to the game</a>
   </div>
+  <script src="../js/manage-questions.js"></script>
 </body>
 </html>

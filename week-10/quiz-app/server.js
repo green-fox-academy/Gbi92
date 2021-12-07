@@ -103,6 +103,38 @@ app.post('/api/questions', (req, res) => {
         }
       });
     }
-    res.status(201).json();
+    res.status(201).json({message: 'OK'});
+  });
+});
+
+app.delete('/api/questions/:id', (req, res) => {
+  const SQL_SELECT_QUERY = `
+  SELECT question FROM questions AS q
+  INNER JOIN answers AS a ON q.id = a.question_id
+  WHERE q.id = ?`;
+
+  const SQL_DELETE_QUERY = `
+  DELETE q.*, a.*
+  FROM questions q
+  LEFT JOIN answers a
+  ON q.id = a.question_id
+  WHERE q.id = ?`;
+
+  conn.query(SQL_SELECT_QUERY, [req.params.id], (err, rows) => {
+    if (err) {
+      res.status(500).json({message: err});
+      return;
+    }
+
+    let deletedQuestion = rows[0];
+
+    conn.query(SQL_DELETE_QUERY, [req.params.id], (err, result) => {
+      if (err) {
+        res.status(500).json({message: err});
+        return;
+      }
+  
+      res.status(200).json(deletedQuestion);
+    });
   });
 });

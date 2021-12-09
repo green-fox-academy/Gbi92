@@ -37,15 +37,15 @@ app.get('/api/game', (req, res) => {
   INNER JOIN answers AS a ON q.id = a.question_id
   WHERE q.id = ?`;
 
-  conn.query('SELECT id FROM questions;', (err, rows) => {
+  conn.query('SELECT id FROM questions;', (err, result) => {
     if (err) {
       res.status(500).json({message: err});
       return;
     }
 
-    let randomIndex = Math.floor(Math.random() * rows.length);
+    let randomIndex = Math.floor(Math.random() * result.length);
 
-    conn.query(SQL_SELECT_QUERY, [rows[randomIndex].id], (err, rows) => {
+    conn.query(SQL_SELECT_QUERY, [result[randomIndex].id], (err, rows) => {
       if (err) {
         res.status(500).json({message: err});
         return;

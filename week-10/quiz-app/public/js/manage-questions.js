@@ -36,8 +36,20 @@ container.addEventListener('click', (event) => {
   }
 });
 
+// const radios = document.querySelectorAll('input[type="radio"]:checked');
+
 form.addEventListener('submit', (e) => {
   e.preventDefault();
+  
+  if (form.newQuestion.value === '' || form.one.value === '' || form.two.value === '' || form.three.value === '' || form.four .value === '') {
+    alert('Please fill all the fields!');
+    return;
+  }
+
+  // if (radios.length === 0) {
+  //   alert('Please select the correct answer!');
+  //   return;
+  // }
 
   fetch('http://localhost:8080/api/questions', {
     method: 'POST',

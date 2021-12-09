@@ -16,8 +16,6 @@ const conn = mysql.createConnection({
   database: 'quiz'
 })
 
-app.listen(PORT, () => console.log(`The server is runnig on PORT ${PORT}`));
-
 conn.connect((error) => {
   if (error) {
     console.log(error);
@@ -87,6 +85,11 @@ app.get('/api/questions', (req, res) => {
 });
 
 app.post('/api/questions', (req, res) => {
+  if (!req.body.question || !req.body.answers.answer_1 || !req.body.answers.answer_2 || !req.body.answers.answer_3 || !req.body.answers.answer_4) {
+    res.status(400).json({message: 'Required values missing'});
+    return;
+  }
+
   conn.query('INSERT INTO questions (question) VALUES (?)', [req.body.question], (err, rows) => {
     if (err) {
       res.status(500).json({message: err});
@@ -103,7 +106,7 @@ app.post('/api/questions', (req, res) => {
         }
       });
     }
-    res.status(201).json({message: 'OK'});
+    res.status(201).json({message: 'Question has been added to quiz'});
   });
 });
 
@@ -121,6 +124,8 @@ app.delete('/api/questions/:id', (req, res) => {
       return;
     }
 
-    res.status(200).json({message: 'OK'});
+    res.status(204).json({message: 'Question is deleted'});
   });
 });
+
+app.listen(PORT, () => console.log(`The server is runnig on PORT ${PORT}`));

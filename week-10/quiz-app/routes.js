@@ -1,5 +1,6 @@
 'use strict';
 
+const { request } = require('express');
 const express = require('express');
 const mysql = require('mysql');
 
@@ -84,7 +85,7 @@ app.get('/api/questions', (req, res) => {
 });
 
 app.post('/api/questions', (req, res) => {
-  if (!req.body.question || !req.body.answers.answer_1 || !req.body.answers.answer_2 || !req.body.answers.answer_3 || !req.body.answers.answer_4) {
+  if (!req.body.question || !req.body.answers[0].answer_1 || !req.body.answers[1].answer_2 || !req.body.answers[2].answer_3 || !req.body.answers[3].answer_4) {
     res.status(400).json({message: 'Required values missing'});
     return;
   }
@@ -117,14 +118,26 @@ app.delete('/api/questions/:id', (req, res) => {
   ON q.id = a.question_id
   WHERE q.id = ?`;
 
-  conn.query(SQL_DELETE_QUERY, [req.params.id], (err, result) => {
+  conn.query('SELECT * FROM questions WHERE id = ?;', [req.params.id], (err, rows) => {
     if (err) {
       res.status(500).json({message: err});
       return;
     }
 
-    res.status(204).json({message: 'Question is deleted'});
-  });
+    if (rows.length === 0) {
+      res.status(404).json({message: 'Question does not exist'});
+      return;
+    }
+
+    conn.query(SQL_DELETE_QUERY, [req.params.id], (err, result) => {
+      if (err) {
+        res.status(500).json({message: err});
+        return;
+      }
+  
+      res.status(204).json({message: 'Question is deleted'});
+    });
+  })
 });
 
 module.exports = { app };

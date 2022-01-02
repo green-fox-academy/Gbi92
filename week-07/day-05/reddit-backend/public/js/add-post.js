@@ -10,7 +10,7 @@ form.addEventListener('submit', (e) => {
     return;
   }
 
-  fetch('http://localhost:3000/posts', {
+  fetch('http://localhost:8080/posts', {
     method: 'POST',
     headers: {'Content-Type': 'application/json', 'user_id' : 1},
     body: JSON.stringify({
@@ -19,5 +19,5 @@ form.addEventListener('submit', (e) => {
     })
   })
   .then(res => res.json())
-  .then(data => window.location.href = 'http://localhost:3000/')
+  .then(data => window.location.href = 'http://localhost:8080/')
 });

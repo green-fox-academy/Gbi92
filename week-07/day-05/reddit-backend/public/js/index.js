@@ -2,7 +2,7 @@
 
 const section = document.querySelector('section');
 
-fetch('http://localhost:3000/posts')
+fetch('http://localhost:8080/posts')
 .then(res => res.json())
 .then(data => {
   data.posts.forEach(el => {
@@ -18,7 +18,7 @@ fetch('http://localhost:3000/posts')
     const upvote = document.createElement('img');
     upvote.setAttribute('src', '../assets/upvote.png');
     upvote.addEventListener('click', () => {
-      fetch(`http://localhost:3000/posts/${el.id}/upvote`, {
+      fetch(`http://localhost:8080/posts/${el.id}/upvote`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'}
       })
@@ -32,7 +32,7 @@ fetch('http://localhost:3000/posts')
     const downvote = document.createElement('img');
     downvote.setAttribute('src', '../assets/downvote.png');
     downvote.addEventListener('click', () => {
-      fetch(`http://localhost:3000/posts/${el.id}/downvote`, {
+      fetch(`http://localhost:8080/posts/${el.id}/downvote`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'}
       })
